@@ -2,14 +2,14 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const bookingsData = [
-  { id: 'B001', customer: 'Sarah Wilson', email: 'sarah.wilson@email.com', tour: 'Bali Adventure Package', date: '2024-03-15', participants: 2, amount: '$1,299', status: 'confirmed', phone: '+1-555-0123' },
-  { id: 'B002', customer: 'Mike Johnson', email: 'mike.johnson@email.com', tour: 'Tokyo Cultural Tour', date: '2024-03-18', participants: 1, amount: '$2,150', status: 'pending', phone: '+1-555-0124' },
-  { id: 'B003', customer: 'Emma Davis', email: 'emma.davis@email.com', tour: 'Paris Romance', date: '2024-03-20', participants: 2, amount: '$1,850', status: 'confirmed', phone: '+1-555-0125' },
-  { id: 'B004', customer: 'David Brown', email: 'david.brown@email.com', tour: 'Swiss Alps Trek', date: '2024-03-22', participants: 3, amount: '$2,400', status: 'cancelled', phone: '+1-555-0126' },
-  { id: 'B005', customer: 'Lisa Garcia', email: 'lisa.garcia@email.com', tour: 'Mediterranean Cruise', date: '2024-03-25', participants: 2, amount: '$3,200', status: 'confirmed', phone: '+1-555-0127' },
-  { id: 'B006', customer: 'Tom Wilson', email: 'tom.wilson@email.com', tour: 'Iceland Northern Lights', date: '2024-03-28', participants: 2, amount: '$2,800', status: 'pending', phone: '+1-555-0128' },
-  { id: 'B007', customer: 'Anna Martinez', email: 'anna.martinez@email.com', tour: 'Safari Adventure Kenya', date: '2024-04-02', participants: 4, amount: '$4,200', status: 'confirmed', phone: '+1-555-0129' },
-  { id: 'B008', customer: 'James Lee', email: 'james.lee@email.com', tour: 'New Zealand Explorer', date: '2024-04-05', participants: 1, amount: '$2,950', status: 'pending', phone: '+1-555-0130' }
+  { id: 'B001', customer: 'Nguyen Van A', email: 'a@example.com', tour: 'Immersive Day as a Farmer', date: '2025-07-14', participants: 2, amount: '450,000 VND', status: 'confirmed', phone: '0901-000-001' },
+  { id: 'B002', customer: 'Tran Thi B', email: 'b@example.com', tour: 'Traditional Music & Sunset', date: '2025-07-13', participants: 1, amount: '500,000 VND', status: 'pending', phone: '0901-000-002' },
+  { id: 'B003', customer: 'Le Van C', email: 'c@example.com', tour: 'Mekong Memories', date: '2025-07-12', participants: 2, amount: '400,000 VND', status: 'confirmed', phone: '0901-000-003' },
+  { id: 'B004', customer: 'Pham Thi D', email: 'd@example.com', tour: 'Immersive Day as a Farmer', date: '2025-07-11', participants: 3, amount: '450,000 VND', status: 'cancelled', phone: '0901-000-004' },
+  { id: 'B005', customer: 'Hoang Van E', email: 'e@example.com', tour: 'Traditional Music & Sunset', date: '2025-07-10', participants: 2, amount: '500,000 VND', status: 'confirmed', phone: '0901-000-005' },
+  { id: 'B006', customer: 'Dang Thi F', email: 'f@example.com', tour: 'Mekong Memories', date: '2025-07-09', participants: 2, amount: '400,000 VND', status: 'pending', phone: '0901-000-006' },
+  { id: 'B007', customer: 'Vo Van G', email: 'g@example.com', tour: 'Immersive Day as a Farmer', date: '2025-07-08', participants: 4, amount: '450,000 VND', status: 'confirmed', phone: '0901-000-007' },
+  { id: 'B008', customer: 'Nguyen Thi H', email: 'h@example.com', tour: 'Traditional Music & Sunset', date: '2025-07-07', participants: 1, amount: '500,000 VND', status: 'pending', phone: '0901-000-008' }
 ];
 
 export default function StaffBookings() {
@@ -21,8 +21,8 @@ export default function StaffBookings() {
   const filteredBookings = bookingsData.filter(booking => {
     const matchesStatus = selectedStatus === 'all' || booking.status === selectedStatus;
     const matchesSearch = booking.customer.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         booking.tour.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         booking.id.toLowerCase().includes(searchTerm.toLowerCase());
+      booking.tour.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      booking.id.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesStatus && matchesSearch;
   });
 
@@ -150,24 +150,23 @@ export default function StaffBookings() {
                       onChange={(e) => setSearchTerm(e.target.value)}
                     />
                   </div>
-                  
+
                   <div className="flex gap-2">
                     {['all', 'pending', 'confirmed', 'cancelled'].map((status) => (
                       <button
                         key={status}
                         onClick={() => setSelectedStatus(status)}
-                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors whitespace-nowrap cursor-pointer ${
-                          selectedStatus === status
+                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors whitespace-nowrap cursor-pointer ${selectedStatus === status
                             ? 'bg-blue-100 text-blue-700'
                             : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
+                          }`}
                       >
                         {status.charAt(0).toUpperCase() + status.slice(1)}
                       </button>
                     ))}
                   </div>
                 </div>
-                
+
                 <div className="flex items-center gap-2">
                   <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm font-medium whitespace-nowrap cursor-pointer">
                     Export Data
@@ -294,11 +293,10 @@ export default function StaffBookings() {
             <div className="flex gap-3">
               <button
                 onClick={confirmAction}
-                className={`flex-1 px-4 py-2 rounded-lg text-sm font-medium ${
-                  selectedBooking.action === 'confirm'
+                className={`flex-1 px-4 py-2 rounded-lg text-sm font-medium ${selectedBooking.action === 'confirm'
                     ? 'bg-green-600 text-white hover:bg-green-700'
                     : 'bg-red-600 text-white hover:bg-red-700'
-                }`}
+                  }`}
               >
                 {selectedBooking.action === 'confirm' ? 'Confirm' : 'Cancel'}
               </button>

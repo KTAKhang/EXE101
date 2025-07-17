@@ -4,28 +4,28 @@ const CustomerHomePage = () => {
   const featuredTours = [
     {
       id: '1',
-      title: 'Mekong Delta Discovery',
-      location: 'Can Tho, Vietnam',
-      price: 899,
-      duration: '5 days',
-      rating: 4.8,
+      title: 'Immersive Day as a Traditional Mekong Delta Farmer',
+      location: 'Vinh Long / Can Tho',
+      price: "450,000 VND",
+      duration: '1 day',
+      rating: 4.7,
       image: 'https://suntravelgroup.vn/media/4215/c%E1%BA%A7n-th%C6%A1-2.jpg?width=1300&height=720&mode=crop'
     },
     {
       id: '2',
-      title: 'Floating Market Explorer',
-      location: 'Tien Giang & Vinh Long, Vietnam',
-      price: 759,
-      duration: '4 days',
+      title: 'Traditional Music & Sunset on the Mekong River',
+      location: 'My Tho – Ben Tre',
+      price: "500,000 VND",
+      duration: 'Half-day afternoon',
       rating: 4.6,
-      image: 'https://thamhiemmekong.com/wp-content/uploads/2019/05/caudibo-cantho.jpg'
+      image: 'https://static-images.vnncdn.net/vps_images_publish/000001/000003/2025/6/27/du-lich-ben-tre-khach-tay-nghe-don-ca-tai-tu-tat-muong-bat-ca-lam-keo-dua-88966.jpg?width=0&s=8ERrUWb0g7GKF0LLlt16og'
     },
     {
       id: '3',
-      title: 'Tra Su Eco Retreat',
-      location: 'Ben Tre, Vietnam',
-      price: 499,
-      duration: '2 days',
+      title: 'Mekong Memories – Floating Market & Traditional Craft Village',
+      location: 'Cai Rang (Can Tho)',
+      price: "400,000 VND",
+      duration: 'Morning',
       rating: 4.8,
       image: 'https://anhdaomekong2hotel.vn/upload/images/du-lich-can-tho-1.png'
     }
@@ -48,10 +48,10 @@ const CustomerHomePage = () => {
             Explore breathtaking destinations and create unforgettable memories with our expertly crafted tours
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/customer/tours" className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 whitespace-nowrap">
+            <Link to="/tours" className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 whitespace-nowrap">
               Explore Tours
             </Link>
-            <Link to="/customer/search" className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-gray-900 whitespace-nowrap">
+            <Link to="/search" className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-gray-900 whitespace-nowrap">
               Search Destinations
             </Link>
           </div>
@@ -95,7 +95,7 @@ const CustomerHomePage = () => {
                       ${tour.price}
                     </div>
                   </div>
-                  <Link to={`/customer/tours/${tour.id}`} className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 block text-center">
+                  <Link to={`/tours/${tour.id}`} className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 block text-center">
                     View Details
                   </Link>
                 </div>
@@ -104,7 +104,7 @@ const CustomerHomePage = () => {
           </div>
 
           <div className="text-center mt-12">
-            <Link to="/customer/tours" className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700">
+            <Link to="/tours" className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700">
               View All Tours
             </Link>
           </div>
@@ -125,7 +125,7 @@ const CustomerHomePage = () => {
               <h3 className="text-2xl font-bold text-gray-900 mb-2">Early Bird Special</h3>
               <p className="text-gray-600 mb-4">Book 3 months in advance and save up to 25% on all tours</p>
               <div className="text-3xl font-bold text-green-600 mb-4">25% OFF</div>
-              <Link to="/customer/tours" className="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700">
+              <Link to="/tours" className="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700">
                 Book Now
               </Link>
             </div>
@@ -137,7 +137,7 @@ const CustomerHomePage = () => {
               <h3 className="text-2xl font-bold text-gray-900 mb-2">Group Discount</h3>
               <p className="text-gray-600 mb-4">Travel with friends and family - groups of 4+ get exclusive rates</p>
               <div className="text-3xl font-bold text-orange-600 mb-4">15% OFF</div>
-              <Link to="/customer/contact" className="bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700">
+              <Link to="/contact" className="bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700">
                 Contact Us
               </Link>
             </div>
@@ -184,4 +184,4 @@ const CustomerHomePage = () => {
   );
 };
 
-export default CustomerHomePage; 
+export default CustomerHomePage;

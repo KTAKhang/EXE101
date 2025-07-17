@@ -10,22 +10,34 @@ const AboutPage = () => {
 
   const team = [
     {
-      name: "John Smith",
-      role: "CEO & Founder",
-      image: "https://readdy.ai/api/search-image?query=Professional%20business%20man%20CEO%20portrait&width=200&height=200&seq=team-1&orientation=square",
-      description: "10+ years of experience in e-commerce and digital retail"
+      name: "Lý Trương Bửu Ngọc",
+      role: "CEO – Chief Executive Officer",
+      image: "https://hips.hearstapps.com/hmg-prod/images/elon-musk-gettyimages-2147789844-web-675b2c17301ea.jpg?crop=0.6666666666666666xw:1xh;center,top&resize=640:*",
+      description: "Develop strategic plans, build partnerships, oversee overall project progress"
     },
     {
-      name: "Sarah Johnson",
-      role: "Head of Operations",
-      image: "https://readdy.ai/api/search-image?query=Professional%20business%20woman%20operations%20manager&width=200&height=200&seq=team-2&orientation=square",
-      description: "Expert in supply chain management and customer experience"
+      name: "Trần Phúc Thịnh",
+      role: "CFO – Chief Financial Officer",
+      image: "https://hips.hearstapps.com/hmg-prod/images/elon-musk-gettyimages-2147789844-web-675b2c17301ea.jpg?crop=0.6666666666666666xw:1xh;center,top&resize=640:*",
+      description: "Manage finances,build revenue models, handle expenses and payments"
     },
     {
-      name: "Mike Chen",
-      role: "Head of Technology",
-      image: "https://readdy.ai/api/search-image?query=Professional%20business%20man%20tech%20leader&width=200&height=200&seq=team-3&orientation=square",
-      description: "Leading our digital transformation and platform development"
+      name: "Nguyễn Huỳnh",
+      role: "CMO – Chief Marketing Officer",
+      image: "https://hips.hearstapps.com/hmg-prod/images/elon-musk-gettyimages-2147789844-web-675b2c17301ea.jpg?crop=0.6666666666666666xw:1xh;center,top&resize=640:*",
+      description: " Build marketing campaigns,collaborate with KOLs, grow user base"
+    },
+    {
+      name: "Kiên Thạch An Khang",
+      role: "CTO – Chief Technology Officer",
+      image: "https://hips.hearstapps.com/hmg-prod/images/elon-musk-gettyimages-2147789844-web-675b2c17301ea.jpg?crop=0.6666666666666666xw:1xh;center,top&resize=640:*",
+      description: "Manage platform development, ensure system stability, integrate AI features"
+    },
+    {
+      name: "Bùi Chí Nguyên",
+      role: "CTO – Chief Technology Officer",
+      image: "https://hips.hearstapps.com/hmg-prod/images/elon-musk-gettyimages-2147789844-web-675b2c17301ea.jpg?crop=0.6666666666666666xw:1xh;center,top&resize=640:*d",
+      description: "Manage platform development, ensure system stability, integrate AI features"
     }
   ];
 
@@ -56,8 +68,8 @@ const AboutPage = () => {
               </p>
             </div>
             <div>
-              <img 
-                src="https://readdy.ai/api/search-image?query=Modern%20e-commerce%20warehouse%20with%20products%20and%20shipping%20boxes&width=600&height=400&seq=about-story&orientation=landscape"
+              <img
+                src="https://st3.depositphotos.com/9881890/15124/i/450/depositphotos_151248194-stock-photo-businessmen-shaking-hands.jpg"
                 alt="Our Story"
                 className="w-full h-96 object-cover rounded-lg"
               />
@@ -158,8 +170,8 @@ const AboutPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {team.map((member, index) => (
               <div key={index} className="bg-white rounded-lg p-6 text-center shadow-lg">
-                <img 
-                  src={member.image} 
+                <img
+                  src={member.image}
                   alt={member.name}
                   className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
                 />
@@ -177,7 +189,7 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Ready to Shop?</h2>
           <p className="text-xl text-blue-100 mb-8">Discover our amazing collection of products</p>
-          <Link to="/customer/products" className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+          <Link to="#" className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
             Browse Products
           </Link>
         </div>

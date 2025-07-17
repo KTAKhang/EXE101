@@ -19,12 +19,13 @@ const userData = [
 ];
 
 const recentActivities = [
-  { id: 'A001', user: 'John Doe', action: 'Created new tour', target: 'Bali Adventure', time: '2 minutes ago', type: 'create' },
-  { id: 'A002', user: 'Sarah Wilson', action: 'Updated booking', target: 'Booking #B001', time: '5 minutes ago', type: 'update' },
-  { id: 'A003', user: 'Mike Johnson', action: 'Deleted user', target: 'user@example.com', time: '10 minutes ago', type: 'delete' },
-  { id: 'A004', user: 'Emma Davis', action: 'Added staff member', target: 'Alex Chen', time: '15 minutes ago', type: 'create' },
-  { id: 'A005', user: 'David Brown', action: 'System backup', target: 'Database backup', time: '1 hour ago', type: 'system' }
+  { id: 'T001', user: 'Admin', action: 'Published new tour', target: 'Immersive Day as a Farmer', time: '10 minutes ago', type: 'create' },
+  { id: 'T002', user: 'Admin', action: 'Updated itinerary', target: 'Mekong Memories Tour', time: '20 minutes ago', type: 'update' },
+  { id: 'T003', user: 'Admin', action: 'Added photo package', target: 'Sunset on Mekong River', time: '35 minutes ago', type: 'update' },
+  { id: 'T004', user: 'System', action: 'Synced booking data', target: 'All tours', time: '1 hour ago', type: 'system' },
+  { id: 'T005', user: 'Admin', action: 'Removed expired promo', target: 'Tour 1', time: '2 hours ago', type: 'delete' }
 ];
+
 
 const systemStatus = [
   { service: 'Web Server', status: 'online', uptime: '99.9%', response: '45ms' },
@@ -152,7 +153,7 @@ export default function AdminDashboard() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             <StatsCard
               title="Total Revenue"
-              value="$328,450"
+              value="5,045,280 VND"
               icon="ri-money-dollar-circle-fill"
               color="bg-green-500"
               change="+23% from last month"

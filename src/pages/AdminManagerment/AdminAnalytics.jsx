@@ -2,38 +2,40 @@ import { Link } from 'react-router-dom';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line } from 'recharts';
 
 const analyticsData = [
-  { month: 'Jan', revenue: 45000, users: 120, bookings: 89, tours: 15 },
-  { month: 'Feb', revenue: 52000, users: 145, bookings: 102, tours: 18 },
-  { month: 'Mar', revenue: 48000, users: 138, bookings: 95, tours: 16 },
-  { month: 'Apr', revenue: 61000, users: 167, bookings: 128, tours: 22 },
-  { month: 'May', revenue: 55000, users: 152, bookings: 115, tours: 19 },
-  { month: 'Jun', revenue: 67000, users: 185, bookings: 142, tours: 25 }
+  { month: 'Jan', revenue: 450000, users: 30, bookings: 25, tours: 1 },
+  { month: 'Feb', revenue: 500000, users: 35, bookings: 30, tours: 1 },
+  { month: 'Mar', revenue: 400000, users: 40, bookings: 28, tours: 1 },
+  { month: 'Apr', revenue: 900000, users: 60, bookings: 52, tours: 2 },
+  { month: 'May', revenue: 1200000, users: 72, bookings: 65, tours: 3 },
+  { month: 'Jun', revenue: 1350000, users: 80, bookings: 70, tours: 3 }
 ];
+
 
 const userGrowthData = [
-  { day: 'Mon', newUsers: 12, activeUsers: 89, returningUsers: 67 },
-  { day: 'Tue', newUsers: 15, activeUsers: 92, returningUsers: 71 },
-  { day: 'Wed', newUsers: 18, activeUsers: 95, returningUsers: 74 },
-  { day: 'Thu', newUsers: 14, activeUsers: 88, returningUsers: 69 },
-  { day: 'Fri', newUsers: 22, activeUsers: 105, returningUsers: 82 },
-  { day: 'Sat', newUsers: 25, activeUsers: 118, returningUsers: 95 },
-  { day: 'Sun', newUsers: 20, activeUsers: 112, returningUsers: 88 }
+  { day: 'Mon', newUsers: 5, activeUsers: 28, returningUsers: 18 },
+  { day: 'Tue', newUsers: 8, activeUsers: 30, returningUsers: 22 },
+  { day: 'Wed', newUsers: 10, activeUsers: 34, returningUsers: 26 },
+  { day: 'Thu', newUsers: 6, activeUsers: 31, returningUsers: 21 },
+  { day: 'Fri', newUsers: 12, activeUsers: 38, returningUsers: 30 },
+  { day: 'Sat', newUsers: 15, activeUsers: 44, returningUsers: 35 },
+  { day: 'Sun', newUsers: 11, activeUsers: 40, returningUsers: 33 }
 ];
+
 
 const topToursData = [
-  { name: 'Bali Adventure', bookings: 45, revenue: 58500, rating: 4.8 },
-  { name: 'Tokyo Cultural', bookings: 38, revenue: 81700, rating: 4.9 },
-  { name: 'Paris Romance', bookings: 32, revenue: 59200, rating: 4.7 },
-  { name: 'Swiss Alps', bookings: 28, revenue: 67200, rating: 4.6 },
-  { name: 'Mediterranean', bookings: 25, revenue: 80000, rating: 4.5 }
+  { name: 'Mekong Delta Farmer', bookings: 65, revenue: 450000 * 65, rating: 4.8 },
+  { name: 'Sunset on Mekong River', bookings: 52, revenue: 500000 * 52, rating: 4.9 },
+  { name: 'Floating Market & Craft Village', bookings: 70, revenue: 400000 * 70, rating: 4.7 }
 ];
 
+
 const deviceData = [
-  { name: 'Desktop', value: 45, color: '#3B82F6' },
-  { name: 'Mobile', value: 38, color: '#10B981' },
-  { name: 'Tablet', value: 12, color: '#F59E0B' },
-  { name: 'Other', value: 5, color: '#EF4444' }
+  { name: 'Mobile', value: 60, color: '#10B981' },
+  { name: 'Desktop', value: 30, color: '#3B82F6' },
+  { name: 'Tablet', value: 7, color: '#F59E0B' },
+  { name: 'Other', value: 3, color: '#EF4444' }
 ];
+
 
 export default function AdminAnalytics() {
   return (
@@ -175,8 +177,8 @@ export default function AdminAnalytics() {
                       </div>
                     </div>
                     <div className="w-16 bg-gray-200 rounded-full h-2">
-                      <div 
-                        className="bg-blue-600 h-2 rounded-full" 
+                      <div
+                        className="bg-blue-600 h-2 rounded-full"
                         style={{ width: `${(tour.bookings / 45) * 100}%` }}
                       ></div>
                     </div>
