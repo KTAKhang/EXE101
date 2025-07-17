@@ -40,49 +40,49 @@ export default function Dashboard() {
 
         {/* Quick Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <div className="bg-white rounded-lg p-6 shadow-sm">
+          <div className="bg-white rounded-lg p-6 shadow-sm h-[110px]">
             <div className="flex items-center">
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
                 <i className="ri-calendar-line text-blue-600 text-xl"></i>
               </div>
               <div className="ml-4">
-                <p className="text-sm text-gray-500">Upcoming Trips</p>
+                <p className="text-sm text-gray-500 min-h-[1.25rem]">Upcoming Trips</p>
                 <p className="text-2xl font-bold text-gray-900">2</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-lg p-6 shadow-sm">
+          <div className="bg-white rounded-lg p-6 shadow-sm h-[110px]">
             <div className="flex items-center">
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
                 <i className="ri-map-pin-line text-green-600 text-xl"></i>
               </div>
               <div className="ml-4">
-                <p className="text-sm text-gray-500">Provinces Visited</p>
+                <p className="text-sm text-gray-500 min-h-[1.25rem]">Visited</p>
                 <p className="text-2xl font-bold text-gray-900">5</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-lg p-6 shadow-sm">
+          <div className="bg-white rounded-lg p-6 shadow-sm h-[110px]">
             <div className="flex items-center">
               <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
                 <i className="ri-heart-line text-purple-600 text-xl"></i>
               </div>
               <div className="ml-4">
-                <p className="text-sm text-gray-500">Favorite Tours</p>
+                <p className="text-sm text-gray-500 min-h-[1.25rem]">Favorite Tours</p>
                 <p className="text-2xl font-bold text-gray-900">8</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-lg p-6 shadow-sm">
+          <div className="bg-white rounded-lg p-6 shadow-sm h-[110px]">
             <div className="flex items-center">
               <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
                 <i className="ri-star-line text-orange-600 text-xl"></i>
               </div>
               <div className="ml-4">
-                <p className="text-sm text-gray-500">Reviews Given</p>
+                <p className="text-sm text-gray-500 min-h-[1.25rem]">Reviews Given</p>
                 <p className="text-2xl font-bold text-gray-900">15</p>
               </div>
             </div>

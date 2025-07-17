@@ -92,7 +92,7 @@ const CustomerHomePage = () => {
                       {tour.duration}
                     </div>
                     <div className="text-2xl font-bold text-blue-600">
-                      ${tour.price}
+                      {tour.price}
                     </div>
                   </div>
                   <Link to={`/tours/${tour.id}`} className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 block text-center">

@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
 import { useState } from 'react';
-import DashboardLayout from "../../../components/Customer/DashboardLayout";
+import DashboardLayout from "../../components/Customer/DashboardLayout";
 
 export default function Reviews() {
   const [activeTab, setActiveTab] = useState('my-reviews');
@@ -12,47 +11,47 @@ export default function Reviews() {
   const myReviews = [
     {
       id: 1,
-      tour: 'European Grand Tour',
-      destination: 'Paris, Rome, Barcelona',
+      tour: 'Immersive Day as a Traditional Mekong Delta Farmer',
+      destination: 'Vinh Long / Can Tho',
       rating: 5,
       date: '2023-09-15',
-      review: 'Absolutely incredible experience! The tour guide was knowledgeable and friendly. Every destination was breathtaking and well-organized. Highly recommend!',
-      image: 'https://readdy.ai/api/search-image?query=European%20grand%20tour%20collage%20featuring%20iconic%20landmarks%20Paris%20Eiffel%20Tower%20Rome%20Colosseum%20Barcelona%20Sagrada%20Familia%2C%20elegant%20travel%20montage%20with%20warm%20golden%20lighting&width=300&height=200&seq=europe3&orientation=landscape'
+      review: 'Absolutely incredible experience! The tour guide was knowledgeable and friendly. Every activity was authentic and well-organized. The photo package was a wonderful bonus!',
+      image: 'https://suntravelgroup.vn/media/4215/c%E1%BA%A7n-th%C6%A1-2.jpg?width=1300&height=720&mode=crop'
     },
     {
       id: 2,
-      tour: 'Mediterranean Cruise',
-      destination: 'Greek Islands',
+      tour: 'Traditional Music & Sunset on the Mekong River',
+      destination: 'My Tho – Ben Tre',
       rating: 4,
       date: '2023-07-22',
-      review: 'Beautiful cruise with stunning views. The food was excellent and the staff was very accommodating. Only minor issue was some crowded ports.',
-      image: 'https://readdy.ai/api/search-image?query=Mediterranean%20cruise%20through%20Greek%20islands%20with%20crystal%20blue%20waters%20white%20cliff%20villages%20luxury%20cruise%20ship%20sailing%20sunset%20golden%20hour%20peaceful%20ocean%20scenery&width=300&height=200&seq=greece2&orientation=landscape'
+      review: 'Beautiful sunset cruise with traditional music. The sampan paddling was peaceful and the áo bà ba photos turned out amazing. Only minor issue was some crowded areas.',
+      image: 'https://static-images.vnncdn.net/vps_images_publish/000001/000003/2025/6/27/du-lich-ben-tre-khach-tay-nghe-don-ca-tai-tu-tat-muong-bat-ca-lam-keo-dua-88966.jpg?width=0&s=8ERrUWb0g7GKF0LLlt16og'
     },
     {
       id: 3,
-      tour: 'African Safari Experience',
-      destination: 'Kenya, Tanzania',
+      tour: 'Mekong Memories – Floating Market & Traditional Craft Village',
+      destination: 'Cai Rang (Can Tho)',
       rating: 5,
       date: '2023-05-10',
-      review: 'Once in a lifetime experience! Saw the Big Five and the guides were exceptional. The accommodations were comfortable and the wildlife viewing was spectacular.',
-      image: 'https://readdy.ai/api/search-image?query=African%20safari%20adventure%20with%20majestic%20wildlife%20elephants%20lions%20zebras%20in%20natural%20savanna%20landscape%20acacia%20trees%20golden%20sunset%20adventure%20photography%20pristine%20wilderness&width=300&height=200&seq=safari3&orientation=landscape'
+      review: 'Early morning at Cai Rang was magical! The breakfast on the boat was unique and delicious. Learning traditional crafts from locals was very meaningful. Highly recommend!',
+      image: 'https://anhdaomekong2hotel.vn/upload/images/du-lich-can-tho-1.png'
     }
   ];
 
   const pendingReviews = [
     {
       id: 4,
-      tour: 'Asian Discovery Adventure',
-      destination: 'Tokyo, Kyoto, Osaka',
+      tour: 'Mekong Delta Discovery Extended',
+      destination: 'Can Tho - An Giang',
       completedDate: '2024-01-15',
-      image: 'https://readdy.ai/api/search-image?query=Japanese%20cultural%20journey%20showcasing%20Tokyo%20modern%20skyline%20Kyoto%20traditional%20temples%20Osaka%20castle%20cherry%20blossoms%2C%20serene%20travel%20photography%20with%20soft%20natural%20lighting&width=300&height=200&seq=japan2&orientation=landscape'
+      image: 'https://thamhiemmekong.com/wp-content/uploads/2019/05/caudibo-cantho.jpg'
     },
     {
       id: 5,
-      tour: 'Swiss Alps Adventure',
-      destination: 'Switzerland',
+      tour: 'Ben Tre Coconut Workshop',
+      destination: 'Ben Tre Province',
       completedDate: '2023-12-20',
-      image: 'https://readdy.ai/api/search-image?query=Swiss%20Alps%20mountain%20adventure%20snow-capped%20peaks%20alpine%20villages%20hiking%20trails%20pristine%20nature%20outdoor%20activities%20breathtaking%20mountain%20scenery%20crystal%20clear%20lakes&width=300&height=200&seq=swiss2&orientation=landscape'
+      image: 'https://anhdaomekong2hotel.vn/upload/images/du-lich-can-tho-1.png'
     }
   ];
 
@@ -293,4 +292,4 @@ export default function Reviews() {
       </div>
     </DashboardLayout>
   );
-}
+} 

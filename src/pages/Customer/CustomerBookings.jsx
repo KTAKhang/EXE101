@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from 'react';
-import DashboardLayout from "../../../components/Customer/DashboardLayout";
+import DashboardLayout from "../../components/Customer/DashboardLayout";
 
 export default function BookingHistory() {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -8,11 +8,11 @@ export default function BookingHistory() {
   const bookings = [
     {
       id: 'BK-2024-001',
-      tour: 'Mekong Delta Discovery',
-      destination: 'Can Tho, Vietnam',
+      tour: 'Immersive Day as a Traditional Mekong Delta Farmer',
+      destination: 'Vinh Long / Can Tho',
       date: '2024-03-15',
-      duration: '5 days',
-      amount: '$899',
+      duration: '1 day',
+      amount: '450,000 VND',
       status: 'confirmed',
       travelers: 2,
       bookingDate: '2024-01-20',
@@ -20,39 +20,27 @@ export default function BookingHistory() {
     },
     {
       id: 'BK-2024-002',
-      tour: 'Floating Market Explorer',
-      destination: 'Tien Giang & Vinh Long, Vietnam',
+      tour: 'Traditional Music & Sunset on the Mekong River',
+      destination: 'My Tho – Ben Tre',
       date: '2024-04-22',
-      duration: '4 days',
-      amount: '$759',
+      duration: 'Half-day afternoon',
+      amount: '500,000 VND',
       status: 'pending',
       travelers: 1,
       bookingDate: '2024-02-10',
-      image: 'https://thamhiemmekong.com/wp-content/uploads/2019/05/caudibo-cantho.jpg'
+      image: 'https://static-images.vnncdn.net/vps_images_publish/000001/000003/2025/6/27/du-lich-ben-tre-khach-tay-nghe-don-ca-tai-tu-tat-muong-bat-ca-lam-keo-dua-88966.jpg?width=0&s=8ERrUWb0g7GKF0LLlt16og'
     },
     {
       id: 'BK-2023-015',
-      tour: 'Ben Tre Coconut Adventure',
-      destination: 'Ben Tre, Vietnam',
+      tour: 'Mekong Memories – Floating Market & Traditional Craft Village',
+      destination: 'Cai Rang (Can Tho)',
       date: '2023-09-10',
-      duration: '2 days',
-      amount: '$499',
+      duration: 'Morning',
+      amount: '400,000 VND',
       status: 'completed',
       travelers: 2,
       bookingDate: '2023-06-15',
       image: 'https://anhdaomekong2hotel.vn/upload/images/du-lich-can-tho-1.png'
-    },
-    {
-      id: 'BK-2023-012',
-      tour: 'Tra Su Eco Retreat',
-      destination: 'An Giang, Vietnam',
-      date: '2023-07-05',
-      duration: '3 days',
-      amount: '$599',
-      status: 'completed',
-      travelers: 3,
-      bookingDate: '2023-04-20',
-      image: 'https://suntravelgroup.vn/media/4215/c%E1%BA%A7n-th%C6%A1-2.jpg?width=1300&height=720&mode=crop'
     }
   ];
 
@@ -153,7 +141,7 @@ export default function BookingHistory() {
                   </p>
                   <div className="flex space-x-2">
                     <Link
-                      to={`/customer/dashboard/bookings/${booking.id}`}
+                      to={`/customer/bookings/${booking.id}`}
                       className="px-4 py-2 text-sm bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors cursor-pointer whitespace-nowrap"
                     >
                       View Details
@@ -176,9 +164,9 @@ export default function BookingHistory() {
               <i className="ri-calendar-line text-gray-400 text-3xl"></i>
             </div>
             <h3 className="text-lg font-medium text-gray-900 mb-2">No bookings found</h3>
-            <p className="text-gray-500 mb-6">You don't have any {activeFilter === 'all' ? '' : activeFilter} bookings yet.</p>
+            <p className="text-gray-500 mb-6">You don&apos;t have any {activeFilter === 'all' ? '' : activeFilter} bookings yet.</p>
             <Link
-              to="/tours"
+              to="/customer/tours"
               className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors cursor-pointer whitespace-nowrap"
             >
               Explore Tours
@@ -188,4 +176,4 @@ export default function BookingHistory() {
       </div>
     </DashboardLayout>
   );
-}
+} 

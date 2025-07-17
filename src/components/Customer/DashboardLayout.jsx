@@ -1,17 +1,15 @@
 import { Link } from "react-router-dom";
 import { useState } from 'react';
 
-
-
 export default function DashboardLayout({ children, activeTab }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const menuItems = [
-    { id: 'dashboard', label: 'Dashboard', to: '/customer', icon: 'ri-dashboard-line' },
-    { id: 'bookings', label: 'My Bookings', to: '/customer/dashboard/bookings', icon: 'ri-calendar-line' },
-    { id: 'favorites', label: 'Favorites', to: '/customer/dashboard/favorites', icon: 'ri-heart-line' },
-    { id: 'reviews', label: 'Reviews', to: '/customer/dashboard/reviews', icon: 'ri-star-line' },
-    { id: 'profile', label: 'Profile', to: '/customer/dashboard/profile', icon: 'ri-user-line' },
+    { id: 'dashboard', label: 'Dashboard', to: '/customer/dashboard', icon: 'ri-dashboard-line' },
+    { id: 'bookings', label: 'My Bookings', to: '/customer/bookings', icon: 'ri-calendar-line' },
+    { id: 'favorites', label: 'Favorites', to: '/customer/favorites', icon: 'ri-heart-line' },
+    { id: 'reviews', label: 'Reviews', to: '/customer/reviews', icon: 'ri-star-line' },
+    { id: 'profile', label: 'Profile', to: '/customer/profile', icon: 'ri-user-line' },
   ];
 
   return (

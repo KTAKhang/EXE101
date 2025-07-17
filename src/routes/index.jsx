@@ -2,7 +2,7 @@
 import ForgotPassword from "../pages/ForgotPassword";
 import NotFoundPage from "../pages/NotFoundPage";
 import AdminLayout from "../layout/AdminLayout";
-import PrivateRoute from "../components/PrivateRouter"; // đảm bảo component này hoạt động
+import PrivateRoute from "../components/PrivateRouter";
 
 // Customer Full Page imports
 import GuestLayout from "../layout/GuestLayout";
@@ -16,16 +16,16 @@ import RegisterPage from "../pages/Guest/Register";
 import LoginPage from "../pages/Guest/Login";
 
 import CustomerLayout from "../layout/CustomerLayout";
-import CustomerDashboardPage from "../pages/Customer/page";
-import CustomerBookingPage from "../pages/Customer/bookings/page";
-import CustomerBookingDetailPage from "../pages/Customer/bookings/[id]/page";
-import CustomerFavoritesPage from "../pages/Customer/favorites/page";
-import CustomerProfilePage from "../pages/Customer/profile/page";
-import CustomerReviewPage from "../pages/Customer/reviews/page";
-import CustomerTourListPage from "../pages/Customer/tours/TourListPage";
-import CustomerTourDetailPage from "../pages/Customer/tours/[id]/TourDetailPage";
+import CustomerBookingPage from "../pages/Customer/CustomerBookings";
+import CustomerFavoritesPage from "../pages/Customer/CustomerFavorites";
+import CustomerProfilePage from "../pages/Customer/CustomerProfile";
+import CustomerReviewPage from "../pages/Customer/CustomerReviews";
+import CustomerTourListPage from "../pages/Customer/TourListPage";
+import CustomerTourDetailPage from "../pages/Customer/TourDetailPage";
 import CustomerHomePage from "../pages/Customer/CustomerHomePage";
 import CustomerSearchPage from "../pages/Customer/SearchPage";
+import CustomerDashboard from "../pages/Customer/CustomerDashboard";
+import CustomerBookingDetail from "../pages/Customer/CustomerBookingDetail";
 
 // Staff Management imports
 import StaffLayout from "../layout/StaffLayout";
@@ -63,13 +63,13 @@ export const routes = [
     path: "/customer",
     element: <CustomerLayout />,
     children: [
-      { path: "", element: <CustomerDashboardPage /> },
-      { path: "dashboard/bookings", element: <CustomerBookingPage /> },
-      { path: "dashboard/bookings:id", element: <CustomerBookingDetailPage /> },
-      { path: "dashboard/favorites", element: <CustomerFavoritesPage /> },
-      { path: "dashboard/reviews", element: <CustomerReviewPage /> },
-      { path: "dashboard/profile", element: <CustomerProfilePage /> },
-      { path: "home", element: <CustomerHomePage /> },
+      { path: "", element: <CustomerHomePage /> },
+      { path: "dashboard", element: <CustomerDashboard /> },
+      { path: "bookings", element: <CustomerBookingPage /> },
+      { path: "bookings/:id", element: <CustomerBookingDetail /> },
+      { path: "favorites", element: <CustomerFavoritesPage /> },
+      { path: "reviews", element: <CustomerReviewPage /> },
+      { path: "profile", element: <CustomerProfilePage /> },
       { path: "tours", element: <CustomerTourListPage /> },
       { path: "tours/:id", element: <CustomerTourDetailPage /> },
       { path: "search", element: <CustomerSearchPage /> },
@@ -82,8 +82,6 @@ export const routes = [
     path: "/forgot-password",
     element: <ForgotPassword />,
   },
-
-
 
   {
     path: "/admin-management",
@@ -110,9 +108,6 @@ export const routes = [
       { path: "support", element: <StaffSupport /> },
     ],
   },
-
-  // Các route dành cho customer (Guest role)
-
 
   // Trang 404
   {

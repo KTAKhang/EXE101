@@ -17,7 +17,7 @@ export default function Header() {
                     </Link>
 
                     <div className="hidden md:flex items-center space-x-8">
-                        <Link to="/customer/home" className="text-gray-600 hover:text-gray-900 cursor-pointer">Home</Link>
+                        <Link to="/customer" className="text-gray-600 hover:text-gray-900 cursor-pointer">Home</Link>
                         <Link to="/customer/tours" className="text-gray-600 hover:text-gray-900 cursor-pointer">Tours</Link>
                         <Link to="/customer/about" className="text-gray-600 hover:text-gray-900 cursor-pointer">About</Link>
                         <Link to="/customer/search" className="text-gray-600 hover:text-gray-900 cursor-pointer">Search</Link>
@@ -28,7 +28,7 @@ export default function Header() {
                             <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center cursor-pointer">
                                 <i className="ri-notification-line text-blue-600"></i>
                             </div>
-                            <Link to="/customer/" className="text-gray-600 hover:text-gray-900 cursor-pointer"> <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center cursor-pointer">
+                            <Link to="/customer/dashboard" className="text-gray-600 hover:text-gray-900 cursor-pointer"> <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center cursor-pointer">
                                 <i className="ri-user-line text-gray-600"></i>
                             </div></Link>
 
