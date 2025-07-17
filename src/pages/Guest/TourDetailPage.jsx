@@ -5,221 +5,125 @@ import { useParams } from "react-router-dom";
 const tours = [
   {
     id: '1',
-    title: 'Mekong Delta Discovery',
-    location: 'Can Tho, Vietnam',
-    price: 899,
-    rating: 4.7,
-    reviews: 158,
-    duration: '5 days',
+    title: 'Immersive Day as a Traditional Mekong Delta Farmer',
+    location: 'Vinh Long / Can Tho',
+    price: "450,000 VND",
+    rating: 4.8,
+    reviews: 124,
+    duration: '1 day',
     groupSize: 'Max 15 people',
     difficulty: 'Easy',
-    description: 'Experience the charm of the Mekong Delta with lush rice fields, vibrant floating markets, and warm Southern Vietnamese hospitality.',
+    description: 'Experience authentic farm life in the Mekong Delta! Harvest fresh produce, cook traditional dishes, and capture beautiful memories in the countryside with our basic photo package included.',
     highlights: [
-      'Visit Cai Rang Floating Market',
-      'Boat ride through Tra Su Cajuput Forest',
-      'Taste authentic Mekong cuisine',
-      'Traditional rice paper village',
-      'Rowing boat through small canals',
-      'Southern folk music performance'
+      'Harvest vegetables and fruits with local farmers',
+      'Cook traditional dishes: grilled snakehead fish, Mekong-style pancakes',
+      'Lunch at garden house with traditional hammocks',
+      'Professional photo shoot in rice fields and countryside',
+      'Make traditional cakes (pandan leaf cake, baked sponge cake)',
+      'Includes conical hat and traditional áo bà ba attire'
     ],
     itinerary: {
-      'Day 1': 'Arrival in Can Tho, hotel check-in, welcome dinner',
-      'Day 2': 'Floating market visit, handicraft village, fruit garden',
-      'Day 3': 'Transfer to Chau Doc, explore Tra Su Forest',
-      'Day 4': 'Cultural experience, folk music show',
-      'Day 5': 'Shopping, farewell lunch, departure'
+      '8:00 AM': 'Pick-up at homestay or central meeting point',
+      '8:30 – 10:00 AM': 'Harvest vegetables/fruits with local farmers (boat ride to orchard)',
+      '10:00 – 11:30 AM': 'Cook traditional dishes: grilled snakehead fish, Mekong-style pancakes',
+      '11:30 AM – 1:00 PM': 'Lunch at garden house, rest on traditional hammocks',
+      '1:00 – 3:00 PM': 'Photo shoot in rice fields/ponds/countryside scenery',
+      '3:00 – 4:30 PM': 'Make traditional cakes (pandan leaf cake, baked sponge cake)',
+      '4:30 – 5:00 PM': 'Return and drop off guests'
     },
     includes: [
-      '4-star hotel accommodation',
-      'Professional English-speaking guide',
-      'All meals (breakfast, lunch, dinner)',
-      'Entrance fees and boat trips',
-      'Travel insurance'
+      '10–15 photos with basic light adjustments (JPEG)',
+      '2 professionally edited bonus photos',
+      'Traditional áo bà ba attire and conical hat',
+      'All meals and cooking ingredients',
+      'Local farmer guide and transportation',
+      'All activities and entrance fees'
     ],
     images: [
-      'https://suntravelgroup.vn/media/4215/c%E1%BA%A7n-th%C6%A1-2.jpg?width=1300&height=720&mode=crop',
-      'https://thamhiemmekong.com/wp-content/uploads/2019/05/caudibo-cantho.jpg',
-      'https://anhdaomekong2hotel.vn/upload/images/du-lich-can-tho-1.png'
+      'https://mia.vn/media/uploads/blog-du-lich/vuon-trai-cay-ben-tre-01-1696636918.jpeg',
+      'https://lavenderstudio.vn/wp-content/uploads/tao-dang-chup-anh-ao-dai-voi-non-la-dep-o-ho-sen.jpg',
+      'https://cafebiz.cafebizcdn.vn/162123310254002176/2024/1/17/photo-10-banh-trai-mien-tay-3-17054588673831717119554.jpg'
     ]
   },
   {
     id: '2',
-    title: 'Floating Market Explorer',
-    location: 'Tien Giang & Vinh Long, Vietnam',
-    price: 759,
-    rating: 4.6,
-    reviews: 96,
-    duration: '4 days',
-    groupSize: 'Max 12 people',
+    title: 'Traditional Music & Sunset on the Mekong River',
+    location: 'My Tho – Ben Tre',
+    price: "500,000 VND",
+    rating: 4.9,
+    reviews: 89,
+    duration: 'Half-day',
+    groupSize: 'Max 15 people',
     difficulty: 'Easy',
-    description: 'Immerse yourself in life on water and discover the authentic culture of the Mekong’s floating markets.',
+    description: 'Experience the magical sunset on the Mekong River while enjoying traditional Vietnamese music. Perfect for romantic moments and cultural immersion with professional photography.',
     highlights: [
-      'Explore Cai Be Floating Market',
-      'Visit local handicraft workshops',
-      'Enjoy fresh tropical fruits in orchards',
-      'Traditional rowing sampan experience',
-      'Local homestay by the river',
-      'Cook and dine with locals'
+      'Visit fruit gardens and sample local delicacies',
+      'Paddle traditional sampan through small canals',
+      'Enjoy traditional Đờn ca tài tử music performance',
+      'Sunset photo shoot with "dreamy Mekong" concept',
+      'Tea service on the river',
+      'Traditional áo bà ba costume included'
     ],
     itinerary: {
-      'Day 1': 'Depart from Ho Chi Minh City to Tien Giang, check in homestay',
-      'Day 2': 'Cai Be Market tours, local craft demo, candy making',
-      'Day 3': 'Transfer to Vinh Long, orchard tours, cooking class',
-      'Day 4': 'Morning relax, lunch, return to HCMC'
+      '2:00 PM': 'Pick-up at the tourism pier',
+      '2:30 – 3:30 PM': 'Visit islets, explore fruit gardens, sample local delicacies',
+      '3:30 – 4:30 PM': 'Paddle sampan through small canals, photo session in áo bà ba',
+      '4:30 – 6:00 PM': 'Large boat to middle of Mekong River, tea and traditional music',
+      '6:00 – 6:45 PM': 'Sunset photo shoot on the river with "dreamy Mekong" concept',
+      '7:00 PM': 'Tour ends'
     },
     includes: [
-      'Riverside homestay',
-      'English-speaking local guide',
-      'All meals',
-      'Transportation and entrance tickets',
-      'Small local gifts'
+      '15 wide-angle and portrait shots',
+      '1 behind-the-scenes highlight video (30–60 seconds)',
+      'Traditional áo bà ba costume',
+      'Tea service and light refreshments',
+      'Traditional music performance',
+      'Premium editing option available'
     ],
     images: [
-      'https://suntravelgroup.vn/media/4215/c%E1%BA%A7n-th%C6%A1-2.jpg?width=1300&height=720&mode=crop',
-      'https://thamhiemmekong.com/wp-content/uploads/2019/05/caudibo-cantho.jpg',
-      'https://anhdaomekong2hotel.vn/upload/images/du-lich-can-tho-1.png'
+      'https://elitetour.com.vn/files/images/Blogs/cu-lao-tan-qui.jpg',
+      'https://thienmekongtravel.com/wp-content/uploads/2022/12/conphung.jpg',
+      'https://images.baodantoc.vn/uploads/2024/Thang-8/Ngay-21/Bang-Ngan/5t49.jpg'
     ]
   },
   {
     id: '3',
-    title: 'Ben Tre Coconut Adventure',
-    location: 'Ben Tre, Vietnam',
-    price: 499,
-    rating: 4.8,
-    reviews: 112,
-    duration: '2 days',
-    groupSize: 'Max 12 people',
+    title: 'Mekong Memories – Floating Market & Traditional Craft Village',
+    location: 'Cai Rang (Can Tho)',
+    price: "400,000 VND",
+    rating: 4.7,
+    reviews: 156,
+    duration: 'Morning',
+    groupSize: 'Max 15 people',
     difficulty: 'Easy',
-    description: 'Discover the “Land of Coconuts” with boat rides, local workshops, and warm countryside hospitality.',
+    description: 'Start your day early at the famous Cai Rang Floating Market, enjoy breakfast on the river, and explore traditional craft villages with nostalgic photo opportunities.',
     highlights: [
-      'Visit coconut candy workshop',
-      'Cycle through peaceful villages',
-      'Sampan ride in small canals',
-      'Cook traditional Vietnamese pancakes',
-      'Relax at riverside homestay'
+      'Visit famous Cai Rang Floating Market',
+      'Unique "breakfast on the river" experience',
+      'Visit rice noodle or rice paper-making villages',
+      'Interact with locals and try traditional crafts',
+      'Artistic photos in nostalgic setting',
+      'Vintage Mekong concept with traditional áo dài'
     ],
     itinerary: {
-      'Day 1': 'Arrive in Ben Tre, bike tours, canoe trip',
-      'Day 2': 'Cooking experience, fruit orchard visit, return'
+      '5:30 AM': 'Pick-up and boat ride to Cai Rang Floating Market',
+      '6:00 – 7:00 AM': 'Breakfast on boat: bun rieu or hu tieu - unique river dining',
+      '7:00 – 8:00 AM': 'Visit rice noodle or rice paper-making villages',
+      '8:00 – 9:30 AM': 'Interact with locals, try traditional crafts, nostalgic photos',
+      '9:30 – 11:00 AM': 'Return by boat, morning river photo session'
     },
     includes: [
-      'Riverside homestay',
-      'All transfers and activities',
-      'Local guide',
-      'Meals included',
-      'Entrance fees'
+      '12 lightly color-graded photos',
+      'Commemorative collage photo (photo + tour info)',
+      'Traditional áo dài and checkered scarf',
+      'Breakfast on the river',
+      'Local guide and transportation',
+      'All craft activities and materials'
     ],
     images: [
-      'https://suntravelgroup.vn/media/4215/c%E1%BA%A7n-th%C6%A1-2.jpg?width=1300&height=720&mode=crop',
-      'https://thamhiemmekong.com/wp-content/uploads/2019/05/caudibo-cantho.jpg',
-      'https://anhdaomekong2hotel.vn/upload/images/du-lich-can-tho-1.png'
-    ]
-  },
-  {
-    id: '4',
-    title: 'Tra Su Eco Retreat',
-    location: 'An Giang, Vietnam',
-    price: 599,
-    rating: 4.9,
-    reviews: 88,
-    duration: '3 days',
-    groupSize: 'Max 10 people',
-    difficulty: 'Moderate',
-    description: 'Reconnect with nature at the tranquil Tra Su Forest and explore An Giang’s spiritual and cultural highlights.',
-    highlights: [
-      'Paddle through Tra Su Cajuput Forest',
-      'Visit Sam Mountain & Ba Chua Xu Temple',
-      'Discover Cham ethnic village',
-      'Watch sunset over Hau River',
-      'Taste vegetarian and local specialties'
-    ],
-    itinerary: {
-      'Day 1': 'Arrive in Chau Doc, visit Cham village',
-      'Day 2': 'Explore Tra Su Forest, boat and walking tours',
-      'Day 3': 'Visit Sam Mountain, local market, return trip'
-    },
-    includes: [
-      'Eco-lodge accommodation',
-      'Local expert guide',
-      'All meals',
-      'Entrance fees and transportation',
-      'Insurance'
-    ],
-    images: [
-      'https://suntravelgroup.vn/media/4215/c%E1%BA%A7n-th%C6%A1-2.jpg?width=1300&height=720&mode=crop',
-      'https://thamhiemmekong.com/wp-content/uploads/2019/05/caudibo-cantho.jpg',
-      'https://anhdaomekong2hotel.vn/upload/images/du-lich-can-tho-1.png'
-    ]
-  },
-  {
-    id: '5',
-    title: 'Sa Dec Flower & Culture tours',
-    location: 'Dong Thap, Vietnam',
-    price: 399,
-    rating: 4.5,
-    reviews: 74,
-    duration: '2 days',
-    groupSize: 'Max 10 people',
-    difficulty: 'Easy',
-    description: 'Discover the colorful flower city of Sa Dec and its rich French-Vietnamese heritage.',
-    highlights: [
-      'Sa Dec Flower Village',
-      'Visit Huynh Thuy Le Ancient House',
-      'Explore local craft villages',
-      'Taste signature Sa Dec noodles',
-      'Walk through charming alleys'
-    ],
-    itinerary: {
-      'Day 1': 'Arrival, visit ancient house and flower village',
-      'Day 2': 'Craft village tours, lunch, return to HCMC'
-    },
-    includes: [
-      '3-star hotel stay',
-      'Local guide',
-      'Entrance tickets',
-      'Meals',
-      'Transportation'
-    ],
-    images: [
-      'https://suntravelgroup.vn/media/4215/c%E1%BA%A7n-th%C6%A1-2.jpg?width=1300&height=720&mode=crop',
-      'https://thamhiemmekong.com/wp-content/uploads/2019/05/caudibo-cantho.jpg',
-      'https://anhdaomekong2hotel.vn/upload/images/du-lich-can-tho-1.png'
-    ]
-  },
-  {
-    id: '6',
-    title: 'Long Xuyen Heritage tours',
-    location: 'An Giang, Vietnam',
-    price: 549,
-    rating: 4.6,
-    reviews: 63,
-    duration: '3 days',
-    groupSize: 'Max 12 people',
-    difficulty: 'Easy',
-    description: 'Step into the cultural heart of the Mekong and discover the untold stories of Long Xuyen.',
-    highlights: [
-      'Visit Long Xuyen Floating Market',
-      'Memorial House of President Ton Duc Thang',
-      'Explore ancient Oc Eo ruins',
-      'Discover Khmer & Cham cultures',
-      'Catch fish in the countryside'
-    ],
-    itinerary: {
-      'Day 1': 'Arrival in Long Xuyen, city tours',
-      'Day 2': 'Visit Oc Eo ruins, cultural exchange activities',
-      'Day 3': 'Traditional fish catching, farewell lunch, return'
-    },
-    includes: [
-      'Comfortable hotel stay',
-      'English-speaking guide',
-      'All meals',
-      'Transport & entry tickets',
-      'Travel insurance'
-    ],
-    images: [
-      'https://suntravelgroup.vn/media/4215/c%E1%BA%A7n-th%C6%A1-2.jpg?width=1300&height=720&mode=crop',
-      'https://thamhiemmekong.com/wp-content/uploads/2019/05/caudibo-cantho.jpg',
-      'https://anhdaomekong2hotel.vn/upload/images/du-lich-can-tho-1.png'
+      'https://thamhiemmekong.com/wp-content/uploads/2019/05/lo-hu-tieu-can-tho-3.jpg',
+      'https://media.vov.vn/sites/default/files/styles/large_watermark/public/2023-02/329518642_1151748552200787_4237649310514734967_n.jpg',
+      'https://thamhiemmekong.com/wp-content/uploads/2019/07/lang-nghe-cham-non-la-can-tho-1.jpg'
     ]
   }
 ];

@@ -4,28 +4,28 @@ const CustomerHomePage = () => {
   const featuredTours = [
     {
       id: '1',
-      title: 'Mekong Delta Discovery',
-      location: 'Can Tho, Vietnam',
-      price: 899,
-      duration: '5 days',
-      rating: 4.8,
+      title: 'Immersive Day as a Traditional Mekong Delta Farmer',
+      location: 'Vinh Long / Can Tho',
+      price: "450,000 VND",
+      duration: '1 day',
+      rating: 4.7,
       image: 'https://suntravelgroup.vn/media/4215/c%E1%BA%A7n-th%C6%A1-2.jpg?width=1300&height=720&mode=crop'
     },
     {
       id: '2',
-      title: 'Floating Market Explorer',
-      location: 'Tien Giang & Vinh Long, Vietnam',
-      price: 759,
-      duration: '4 days',
+      title: 'Traditional Music & Sunset on the Mekong River',
+      location: 'My Tho – Ben Tre',
+      price: "500,000 VND",
+      duration: 'Half-day afternoon',
       rating: 4.6,
-      image: 'https://thamhiemmekong.com/wp-content/uploads/2019/05/caudibo-cantho.jpg'
+      image: 'https://static-images.vnncdn.net/vps_images_publish/000001/000003/2025/6/27/du-lich-ben-tre-khach-tay-nghe-don-ca-tai-tu-tat-muong-bat-ca-lam-keo-dua-88966.jpg?width=0&s=8ERrUWb0g7GKF0LLlt16og'
     },
     {
       id: '3',
-      title: 'Tra Su Eco Retreat',
-      location: 'Ben Tre, Vietnam',
-      price: 499,
-      duration: '2 days',
+      title: 'Mekong Memories – Floating Market & Traditional Craft Village',
+      location: 'Cai Rang (Can Tho)',
+      price: "400,000 VND",
+      duration: 'Morning',
       rating: 4.8,
       image: 'https://anhdaomekong2hotel.vn/upload/images/du-lich-can-tho-1.png'
     }
