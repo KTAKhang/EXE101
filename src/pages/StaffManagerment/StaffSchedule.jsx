@@ -2,15 +2,63 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const scheduleData = [
-  { id: 'S001', tour: 'Bali Adventure Package', guide: 'Alex Chen', date: '2024-03-15', time: '08:00', location: 'Denpasar Airport', status: 'confirmed', participants: 12, maxParticipants: 20 },
-  { id: 'S002', tour: 'Tokyo Cultural Tour', guide: 'Yuki Tanaka', date: '2024-03-18', time: '09:30', location: 'Narita Airport', status: 'confirmed', participants: 8, maxParticipants: 15 },
-  { id: 'S003', tour: 'Paris Romance', guide: 'Marie Dubois', date: '2024-03-20', time: '10:00', location: 'Charles de Gaulle Airport', status: 'confirmed', participants: 6, maxParticipants: 12 },
-  { id: 'S004', tour: 'Swiss Alps Trek', guide: 'Hans Mueller', date: '2024-03-22', time: '07:30', location: 'Zurich Airport', status: 'pending', participants: 10, maxParticipants: 18 },
-  { id: 'S005', tour: 'Mediterranean Cruise', guide: 'Maria Santos', date: '2024-03-25', time: '14:00', location: 'Barcelona Port', status: 'confirmed', participants: 18, maxParticipants: 25 },
-  { id: 'S006', tour: 'Iceland Northern Lights', guide: 'Erik Jonsson', date: '2024-03-28', time: '11:00', location: 'Keflavik Airport', status: 'confirmed', participants: 14, maxParticipants: 16 },
-  { id: 'S007', tour: 'Safari Adventure Kenya', guide: 'John Mwangi', date: '2024-04-02', time: '06:00', location: 'Jomo Kenyatta Airport', status: 'pending', participants: 8, maxParticipants: 12 },
-  { id: 'S008', tour: 'New Zealand Explorer', guide: 'Sarah Wilson', date: '2024-04-05', time: '13:30', location: 'Auckland Airport', status: 'draft', participants: 6, maxParticipants: 14 }
+  {
+    id: 'S001',
+    tour: 'Immersive Day as a Traditional Mekong Delta Farmer',
+    guide: 'Nguyen Van Tam',
+    date: '2024-07-20',
+    time: '08:00',
+    location: 'Vinh Long Pier',
+    status: 'confirmed',
+    participants: 12,
+    maxParticipants: 20
+  },
+  {
+    id: 'S002',
+    tour: 'Traditional Music & Sunset on the Mekong River',
+    guide: 'Tran Thi Hoa',
+    date: '2024-07-22',
+    time: '16:00',
+    location: 'Ninh Kieu Wharf, Can Tho',
+    status: 'confirmed',
+    participants: 10,
+    maxParticipants: 15
+  },
+  {
+    id: 'S003',
+    tour: 'Mekong Memories – Floating Market & Traditional Craft Village',
+    guide: 'Le Hoang Minh',
+    date: '2024-07-25',
+    time: '06:00',
+    location: 'Cai Rang Floating Market, Can Tho',
+    status: 'pending',
+    participants: 8,
+    maxParticipants: 12
+  },
+  {
+    id: 'S004',
+    tour: 'Immersive Day as a Traditional Mekong Delta Farmer',
+    guide: 'Nguyen Van Tam',
+    date: '2024-07-27',
+    time: '08:00',
+    location: 'Vinh Long Pier',
+    status: 'confirmed',
+    participants: 18,
+    maxParticipants: 20
+  },
+  {
+    id: 'S005',
+    tour: 'Traditional Music & Sunset on the Mekong River',
+    guide: 'Tran Thi Hoa',
+    date: '2024-07-30',
+    time: '16:30',
+    location: 'Ninh Kieu Wharf, Can Tho',
+    status: 'draft',
+    participants: 5,
+    maxParticipants: 15
+  }
 ];
+
 
 export default function StaffSchedule() {
   const [selectedStatus, setSelectedStatus] = useState('all');
@@ -20,8 +68,8 @@ export default function StaffSchedule() {
   const filteredSchedules = scheduleData.filter(schedule => {
     const matchesStatus = selectedStatus === 'all' || schedule.status === selectedStatus;
     const matchesSearch = schedule.tour.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         schedule.guide.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         schedule.id.toLowerCase().includes(searchTerm.toLowerCase());
+      schedule.guide.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      schedule.id.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesDate = !selectedDate || schedule.date === selectedDate;
     return matchesStatus && matchesSearch && matchesDate;
   });
@@ -147,17 +195,16 @@ export default function StaffSchedule() {
                       onChange={(e) => setSearchTerm(e.target.value)}
                     />
                   </div>
-                  
+
                   <div className="flex gap-2">
                     {['all', 'confirmed', 'pending', 'draft', 'cancelled'].map((status) => (
                       <button
                         key={status}
                         onClick={() => setSelectedStatus(status)}
-                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors whitespace-nowrap cursor-pointer ${
-                          selectedStatus === status
+                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors whitespace-nowrap cursor-pointer ${selectedStatus === status
                             ? 'bg-blue-100 text-blue-700'
                             : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
+                          }`}
                       >
                         {status.charAt(0).toUpperCase() + status.slice(1)}
                       </button>
@@ -213,8 +260,8 @@ export default function StaffSchedule() {
                         <div className="flex items-center">
                           <span className="mr-2">{schedule.participants}/{schedule.maxParticipants}</span>
                           <div className="w-16 bg-gray-200 rounded-full h-2">
-                            <div 
-                              className="bg-blue-600 h-2 rounded-full" 
+                            <div
+                              className="bg-blue-600 h-2 rounded-full"
                               style={{ width: `${(schedule.participants / schedule.maxParticipants) * 100}%` }}
                             ></div>
                           </div>

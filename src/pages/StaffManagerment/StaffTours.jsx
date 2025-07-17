@@ -2,15 +2,68 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const toursData = [
-  { id: 'T001', name: 'Bali Adventure Package', destination: 'Bali, Indonesia', duration: '7 days', price: '$1,299', capacity: 20, booked: 12, status: 'active', guide: 'Alex Chen', departure: '2024-03-15' },
-  { id: 'T002', name: 'Tokyo Cultural Tour', destination: 'Tokyo, Japan', duration: '5 days', price: '$2,150', capacity: 15, booked: 8, status: 'active', guide: 'Yuki Tanaka', departure: '2024-03-18' },
-  { id: 'T003', name: 'Paris Romance', destination: 'Paris, France', duration: '6 days', price: '$1,850', capacity: 12, booked: 6, status: 'active', guide: 'Marie Dubois', departure: '2024-03-20' },
-  { id: 'T004', name: 'Swiss Alps Trek', destination: 'Swiss Alps', duration: '8 days', price: '$2,400', capacity: 18, booked: 10, status: 'active', guide: 'Hans Mueller', departure: '2024-03-22' },
-  { id: 'T005', name: 'Mediterranean Cruise', destination: 'Mediterranean Sea', duration: '10 days', price: '$3,200', capacity: 25, booked: 18, status: 'active', guide: 'Maria Santos', departure: '2024-03-25' },
-  { id: 'T006', name: 'Iceland Northern Lights', destination: 'Reykjavik, Iceland', duration: '6 days', price: '$2,800', capacity: 16, booked: 14, status: 'active', guide: 'Erik Jonsson', departure: '2024-03-28' },
-  { id: 'T007', name: 'Safari Adventure Kenya', destination: 'Nairobi, Kenya', duration: '9 days', price: '$4,200', capacity: 12, booked: 8, status: 'active', guide: 'John Mwangi', departure: '2024-04-02' },
-  { id: 'T008', name: 'New Zealand Explorer', destination: 'Auckland, New Zealand', duration: '12 days', price: '$2,950', capacity: 14, booked: 6, status: 'draft', guide: 'Sarah Wilson', departure: '2024-04-05' }
+  {
+    id: 'T001',
+    name: 'Immersive Day as a Traditional Mekong Delta Farmer',
+    destination: 'Vinh Long / Can Tho, Vietnam',
+    duration: '1 day',
+    price: '$18',
+    capacity: 20,
+    booked: 12,
+    status: 'active',
+    guide: 'Nguyen Van Tam',
+    departure: '2024-07-20'
+  },
+  {
+    id: 'T002',
+    name: 'Traditional Music & Sunset on the Mekong River',
+    destination: 'Can Tho, Vietnam',
+    duration: '1 evening',
+    price: '$22',
+    capacity: 15,
+    booked: 10,
+    status: 'active',
+    guide: 'Tran Thi Hoa',
+    departure: '2024-07-22'
+  },
+  {
+    id: 'T003',
+    name: 'Mekong Memories – Floating Market & Traditional Craft Village',
+    destination: 'Can Tho, Vietnam',
+    duration: '1 day',
+    price: '$25',
+    capacity: 12,
+    booked: 8,
+    status: 'pending',
+    guide: 'Le Hoang Minh',
+    departure: '2024-07-25'
+  },
+  {
+    id: 'T004',
+    name: 'Immersive Day as a Traditional Mekong Delta Farmer',
+    destination: 'Vinh Long, Vietnam',
+    duration: '1 day',
+    price: '$18',
+    capacity: 20,
+    booked: 18,
+    status: 'active',
+    guide: 'Nguyen Van Tam',
+    departure: '2024-07-27'
+  },
+  {
+    id: 'T005',
+    name: 'Traditional Music & Sunset on the Mekong River',
+    destination: 'Ninh Kieu Wharf, Can Tho',
+    duration: '1 evening',
+    price: '$22',
+    capacity: 15,
+    booked: 5,
+    status: 'draft',
+    guide: 'Tran Thi Hoa',
+    departure: '2024-07-30'
+  }
 ];
+
 
 export default function StaffTours() {
   const [selectedStatus, setSelectedStatus] = useState('all');
@@ -21,8 +74,8 @@ export default function StaffTours() {
   const filteredTours = toursData.filter(tour => {
     const matchesStatus = selectedStatus === 'all' || tour.status === selectedStatus;
     const matchesSearch = tour.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         tour.destination.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         tour.id.toLowerCase().includes(searchTerm.toLowerCase());
+      tour.destination.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      tour.id.toLowerCase().includes(searchTerm.toLowerCase());
     return matchesStatus && matchesSearch;
   });
 
@@ -147,17 +200,16 @@ export default function StaffTours() {
                       onChange={(e) => setSearchTerm(e.target.value)}
                     />
                   </div>
-                  
+
                   <div className="flex gap-2">
                     {['all', 'active', 'draft', 'inactive'].map((status) => (
                       <button
                         key={status}
                         onClick={() => setSelectedStatus(status)}
-                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors whitespace-nowrap cursor-pointer ${
-                          selectedStatus === status
+                        className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors whitespace-nowrap cursor-pointer ${selectedStatus === status
                             ? 'bg-blue-100 text-blue-700'
                             : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                        }`}
+                          }`}
                       >
                         {status.charAt(0).toUpperCase() + status.slice(1)}
                       </button>
@@ -210,8 +262,8 @@ export default function StaffTours() {
                         <div className="flex items-center">
                           <span className="mr-2">{tour.booked}</span>
                           <div className="w-16 bg-gray-200 rounded-full h-2">
-                            <div 
-                              className="bg-blue-600 h-2 rounded-full" 
+                            <div
+                              className="bg-blue-600 h-2 rounded-full"
                               style={{ width: `${(tour.booked / tour.capacity) * 100}%` }}
                             ></div>
                           </div>
@@ -297,11 +349,10 @@ export default function StaffTours() {
             <div className="flex gap-3">
               <button
                 onClick={confirmAction}
-                className={`flex-1 px-4 py-2 rounded-lg text-sm font-medium ${
-                  selectedTour.action === 'publish'
+                className={`flex-1 px-4 py-2 rounded-lg text-sm font-medium ${selectedTour.action === 'publish'
                     ? 'bg-green-600 text-white hover:bg-green-700'
                     : 'bg-red-600 text-white hover:bg-red-700'
-                }`}
+                  }`}
               >
                 {selectedTour.action === 'publish' ? 'Publish' : 'Deactivate'}
               </button>

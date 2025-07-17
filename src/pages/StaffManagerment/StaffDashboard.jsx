@@ -12,19 +12,20 @@ const bookingData = [
 ];
 
 const recentBookings = [
-  { id: 'B001', customer: 'Sarah Wilson', tour: 'Bali Adventure', date: '2024-03-15', status: 'confirmed', amount: '$1,299' },
-  { id: 'B002', customer: 'Mike Johnson', tour: 'Tokyo Cultural Tour', date: '2024-03-18', status: 'pending', amount: '$2,150' },
-  { id: 'B003', customer: 'Emma Davis', tour: 'Paris Romance', date: '2024-03-20', status: 'confirmed', amount: '$1,850' },
-  { id: 'B004', customer: 'David Brown', tour: 'Swiss Alps Trek', date: '2024-03-22', status: 'cancelled', amount: '$2,400' },
-  { id: 'B005', customer: 'Lisa Garcia', tour: 'Mediterranean Cruise', date: '2024-03-25', status: 'confirmed', amount: '$3,200' }
+  { id: 'B001', customer: 'Nguyen Van A', tour: 'Immersive Day as a Farmer', date: '2025-07-14', status: 'confirmed', amount: '450,000 VND' },
+  { id: 'B002', customer: 'Tran Thi B', tour: 'Traditional Music & Sunset', date: '2025-07-13', status: 'pending', amount: '500,000 VND' },
+  { id: 'B003', customer: 'Le Van C', tour: 'Mekong Memories', date: '2025-07-12', status: 'confirmed', amount: '400,000 VND' },
+  { id: 'B004', customer: 'Pham Thi D', tour: 'Immersive Day as a Farmer', date: '2025-07-11', status: 'cancelled', amount: '450,000 VND' },
+  { id: 'B005', customer: 'Hoang Van E', tour: 'Traditional Music & Sunset', date: '2025-07-10', status: 'confirmed', amount: '500,000 VND' }
 ];
 
+
 const upcomingTours = [
-  { id: 'T001', name: 'Bali Adventure Package', departure: '2024-03-15', duration: '7 days', participants: 12, guide: 'Alex Chen' },
-  { id: 'T002', name: 'Tokyo Cultural Experience', departure: '2024-03-18', duration: '5 days', participants: 8, guide: 'Yuki Tanaka' },
-  { id: 'T003', name: 'Paris Romance Tour', departure: '2024-03-20', duration: '6 days', participants: 6, guide: 'Marie Dubois' },
-  { id: 'T004', name: 'Swiss Alps Adventure', departure: '2024-03-22', duration: '8 days', participants: 10, guide: 'Hans Mueller' }
+  { id: 'T001', name: 'Immersive Day as a Farmer', departure: '2025-07-18', duration: '1 day', participants: 12, guide: 'Mr. Binh' },
+  { id: 'T002', name: 'Traditional Music & Sunset', departure: '2025-07-19', duration: 'Half-day', participants: 10, guide: 'Ms. Hoa' },
+  { id: 'T003', name: 'Mekong Memories', departure: '2025-07-20', duration: 'Morning', participants: 15, guide: 'Mr. Long' }
 ];
+
 
 export default function StaffDashboard() {
   const getStatusColor = (status) => {
@@ -149,7 +150,7 @@ export default function StaffDashboard() {
             />
             <StatsCard
               title="Revenue"
-              value="$45,280"
+              value="5,045,280 VND"
               icon="ri-money-dollar-circle-fill"
               color="bg-purple-500"
               change="+18% from last month"
