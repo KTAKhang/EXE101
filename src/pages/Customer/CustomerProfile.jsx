@@ -1,6 +1,5 @@
-import { Link } from "react-router-dom";
 import { useState } from 'react';
-import DashboardLayout from "../../../components/Customer/DashboardLayout";
+import DashboardLayout from "../../components/Customer/DashboardLayout";
 
 export default function Profile() {
   const [activeTab, setActiveTab] = useState('personal');
@@ -20,23 +19,6 @@ export default function Profile() {
     state: 'NY',
     zipCode: '10001',
     country: 'United States'
-  });
-
-  const [preferences, setPreferences] = useState({
-    currency: 'USD',
-    language: 'English',
-    timezone: 'EST',
-    emailNotifications: {
-      bookingConfirmations: true,
-      promotions: true,
-      travelReminders: true,
-      newsletter: false
-    },
-    pushNotifications: {
-      bookingUpdates: true,
-      travelAlerts: true,
-      specialOffers: false
-    }
   });
 
   const [passwords, setPasswords] = useState({
@@ -343,4 +325,4 @@ export default function Profile() {
       </div>
     </DashboardLayout>
   );
-}
+} 
