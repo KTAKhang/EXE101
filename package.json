@@ -8,7 +8,8 @@
     "start": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "vercel-build": "vite build"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
@@ -18,7 +19,6 @@
     "@reduxjs/toolkit": "^2.5.0",
     "antd": "^5.23.1",
     "axios": "^1.7.9",
-    "eco-web": "file:",
     "framer-motion": "^12.23.3",
     "lucide-react": "^0.511.0",
     "react": "^18.3.1",
