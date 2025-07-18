@@ -1,5 +1,5 @@
 
-import ForgotPassword from "../pages/ForgotPassword";
+// import ForgotPassword from "../pages/ForgotPassword";
 import NotFoundPage from "../pages/NotFoundPage";
 import AdminLayout from "../layout/AdminLayout";
 import PrivateRoute from "../components/PrivateRouter";
@@ -78,10 +78,10 @@ export const routes = [
     ],
   },
 
-  {
-    path: "/forgot-password",
-    element: <ForgotPassword />,
-  },
+  // {
+  //   path: "/forgot-password",
+  //   element: <ForgotPassword />,
+  // },
 
   {
     path: "/admin-management",
