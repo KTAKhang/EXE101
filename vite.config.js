@@ -1,10 +1,12 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
+// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  build: {
-    outDir: 'dist'
+  resolve: {
+    alias: {
+      "@": "/src", // Đảm bảo rằng `@` trỏ tới thư mục src
+    },
   },
-  base: './' // Rất quan trọng để relative path hoạt động đúng trên Vercel
 });
