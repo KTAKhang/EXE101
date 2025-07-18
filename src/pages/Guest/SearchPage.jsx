@@ -10,63 +10,33 @@ const SearchPage = () => {
   const allTours = [
     {
       id: '1',
-      title: 'Tropical Paradise Adventure',
-      location: 'Bali, Indonesia',
+      title: 'Immersive Day as a Traditional Mekong Delta Farmer',
+      location: 'Vinh Long / Can Tho',
       category: 'Beach',
-      price: 1299,
-      duration: '7 days',
-      rating: 4.8,
-      image: 'https://readdy.ai/api/search-image?query=Beautiful%20tropical%20paradise%20beach%20with%20crystal%20clear%20turquoise%20water%2C%20palm%20trees%2C%20white%20sand%2C%20luxury%20resort%20in%20background%2C%20sunset%20golden%20hour%20lighting%2C%20peaceful%20and%20serene%20atmosphere&width=300&height=200&seq=search-1&orientation=landscape'
+      price: "450,000 VND",
+      duration: '1 day',
+      rating: 4.7,
+      image: 'https://suntravelgroup.vn/media/4215/c%E1%BA%A7n-th%C6%A1-2.jpg?width=1300&height=720&mode=crop'
     },
     {
       id: '2',
-      title: 'Mountain Hiking Expedition',
-      location: 'Swiss Alps, Switzerland',
+      title: 'Traditional Music & Sunset on the Mekong River',
+      location: 'My Tho – Ben Tre',
       category: 'Adventure',
-      price: 1899,
-      duration: '10 days',
-      rating: 4.9,
-      image: 'https://readdy.ai/api/search-image?query=Majestic%20mountain%20peaks%20covered%20in%20snow%2C%20alpine%20hiking%20trails%2C%20green%20meadows%2C%20clear%20blue%20sky%2C%20adventure%20travel%20destination&width=300&height=200&seq=search-2&orientation=landscape'
+      price: "500,000 VND",
+      duration: 'Half-day afternoon',
+      rating: 4.6,
+      image: 'https://static-images.vnncdn.net/vps_images_publish/000001/000003/2025/6/27/du-lich-ben-tre-khach-tay-nghe-don-ca-tai-tu-tat-muong-bat-ca-lam-keo-dua-88966.jpg?width=0&s=8ERrUWb0g7GKF0LLlt16og'
     },
     {
       id: '3',
-      title: 'Cultural Heritage Tour',
-      location: 'Kyoto, Japan',
+      title: 'Mekong Memories – Floating Market & Traditional Craft Village',
+      location: 'Cai Rang (Can Tho)',
       category: 'Cultural',
-      price: 1599,
-      duration: '8 days',
-      rating: 4.7,
-      image: 'https://readdy.ai/api/search-image?query=Traditional%20Japanese%20temple%20with%20cherry%20blossoms%2C%20ancient%20architecture%2C%20peaceful%20zen%20garden%2C%20cultural%20heritage%20site&width=300&height=200&seq=search-3&orientation=landscape'
-    },
-    {
-      id: '4',
-      title: 'African Safari Experience',
-      location: 'Kenya, Africa',
-      category: 'Wildlife',
-      price: 2299,
-      duration: '12 days',
-      rating: 4.9,
-      image: 'https://readdy.ai/api/search-image?query=African%20safari%20landscape%20with%20wild%20animals%2C%20acacia%20trees%2C%20savanna%20grasslands%2C%20golden%20sunset&width=300&height=200&seq=search-4&orientation=landscape'
-    },
-    {
-      id: '5',
-      title: 'Mediterranean Cruise',
-      location: 'Greek Islands',
-      category: 'Cruise',
-      price: 1799,
-      duration: '9 days',
-      rating: 4.6,
-      image: 'https://readdy.ai/api/search-image?query=Mediterranean%20coastline%20with%20white%20buildings%2C%20blue%20domed%20churches%2C%20crystal%20clear%20blue%20water%2C%20luxury%20cruise%20ship&width=300&height=200&seq=search-5&orientation=landscape'
-    },
-    {
-      id: '6',
-      title: 'Amazon Rainforest Trek',
-      location: 'Peru, South America',
-      category: 'Adventure',
-      price: 1699,
-      duration: '6 days',
+      price: "400,000 VND",
+      duration: 'Morning',
       rating: 4.8,
-      image: 'https://readdy.ai/api/search-image?query=Dense%20Amazon%20rainforest%20with%20lush%20green%20vegetation%2C%20exotic%20wildlife%2C%20river%20views%2C%20adventure%20trekking%20paths&width=300&height=200&seq=search-6&orientation=landscape'
+      image: 'https://anhdaomekong2hotel.vn/upload/images/du-lich-can-tho-1.png'
     }
   ];
 
@@ -75,10 +45,10 @@ const SearchPage = () => {
     if (!searchQuery.trim()) return;
 
     setIsSearching(true);
-    
+
     // Simulate API call delay
     setTimeout(() => {
-      const results = allTours.filter(tour => 
+      const results = allTours.filter(tour =>
         tour.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         tour.location.toLowerCase().includes(searchQuery.toLowerCase()) ||
         tour.category.toLowerCase().includes(searchQuery.toLowerCase())
@@ -90,7 +60,7 @@ const SearchPage = () => {
 
   const handleQuickSearch = (term) => {
     setSearchQuery(term);
-    const results = allTours.filter(tour => 
+    const results = allTours.filter(tour =>
       tour.title.toLowerCase().includes(term.toLowerCase()) ||
       tour.location.toLowerCase().includes(term.toLowerCase()) ||
       tour.category.toLowerCase().includes(term.toLowerCase())
@@ -178,8 +148,8 @@ const SearchPage = () => {
                 {searchResults.map((tour) => (
                   <div key={tour.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow cursor-pointer">
                     <div className="relative h-48 bg-gray-200">
-                      <img 
-                        src={tour.image} 
+                      <img
+                        src={tour.image}
                         alt={tour.title}
                         className="w-full h-full object-cover object-top"
                       />
