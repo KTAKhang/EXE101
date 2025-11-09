@@ -1,77 +1,97 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import anh3 from "../../assets/img/a3.jpg";
+import anh5 from "../../assets/img/a5.jpg";
 
 const TourListPage = () => {
-  const [selectedLocation, setSelectedLocation] = useState('');
-  const [selectedPriceRange, setSelectedPriceRange] = useState('');
-  const [selectedDuration, setSelectedDuration] = useState('');
+  const [selectedLocation, setSelectedLocation] = useState("");
+  const [selectedPriceRange, setSelectedPriceRange] = useState("");
+  const [selectedDuration, setSelectedDuration] = useState("");
 
+  // ✅ DANH SÁCH TOUR VIỆT NAM
   const tours = [
     {
-      id: '1',
-      title: 'Immersive Day as a Traditional Mekong Delta Farmer',
-      location: 'Vinh Long / Can Tho',
-      price: "450,000 VND",
-      duration: '1 day',
-      rating: 4.7,
-      category: 'Adventure',
-      image: 'https://suntravelgroup.vn/media/4215/c%E1%BA%A7n-th%C6%A1-2.jpg?width=1300&height=720&mode=crop'
-    },
-    {
-      id: '2',
-      title: 'Traditional Music & Sunset on the Mekong River',
-      location: 'My Tho – Ben Tre',
-      price: "500,000 VND",
-      duration: 'Half-day afternoon',
-      rating: 4.6,
-      category: 'Adventure',
-      image: 'https://static-images.vnncdn.net/vps_images_publish/000001/000003/2025/6/27/du-lich-ben-tre-khach-tay-nghe-don-ca-tai-tu-tat-muong-bat-ca-lam-keo-dua-88966.jpg?width=0&s=8ERrUWb0g7GKF0LLlt16og'
-    },
-    {
-      id: '3',
-      title: 'Mekong Memories – Floating Market & Traditional Craft Village',
-      location: 'Cai Rang (Can Tho)',
-      price: "400,000 VND",
-      duration: 'Morning',
+      id: "1",
+      title: "Trải Nghiệm Bắt Cá & Hái Trái Cây – Cần Thơ",
+      location: "Phong Điền – Cần Thơ",
+      price: 250000,
+      duration: "3 giờ",
       rating: 4.8,
-      category: 'Adventure',
-      image: 'https://anhdaomekong2hotel.vn/upload/images/du-lich-can-tho-1.png'
-    }
+      category: "Trải nghiệm",
+      image: anh3,
+    },
+    {
+      id: "2",
+      title: "Khám Phá Văn Hóa & Lịch Sử Sóc Trăng – 1 Ngày",
+      location: "Sóc Trăng",
+      price: 350000,
+      duration: "1 ngày",
+      rating: 4.9,
+      category: "Văn hóa",
+      image: anh5,
+    },
   ];
 
-  const locations = ['All Locations', 'Asia', 'Europe', 'Africa', 'Americas'];
-  const priceRanges = ['All Prices', 'Under $1000', '$1000-$1500', '$1500-$2000', 'Over $2000'];
-  const durations = ['All Durations', '1-5 days', '6-10 days', 'Over 10 days'];
+  // ✅ BỘ LỌC PHÙ HỢP VIỆT NAM
+  const locations = [
+    "Tất cả địa điểm",
+    "Cần Thơ",
+    "Sóc Trăng",
+    "Bến Tre",
+    "An Giang",
+    "Vĩnh Long",
+  ];
 
-  const filteredTours = tours.filter(tour => {
-    if (selectedLocation && selectedLocation !== 'All Locations') {
-      const locationMatch = {
-        'Asia': ['Bali, Indonesia', 'Kyoto, Japan'],
-        'Europe': ['Swiss Alps, Switzerland', 'Greek Islands'],
-        'Africa': ['Kenya, Africa'],
-        'Americas': ['Peru, South America']
-      };
-      if (!locationMatch[selectedLocation]?.includes(tour.location)) return false;
+  const priceRanges = [
+    "Tất cả giá",
+    "Dưới 200.000đ",
+    "200.000đ - 300.000đ",
+    "300.000đ - 500.000đ",
+    "Trên 500.000đ",
+  ];
+
+  const durations = [
+    "Tất cả thời lượng",
+    "Dưới 4 giờ",
+    "Nửa ngày",
+    "1 ngày",
+    "Trên 1 ngày",
+  ];
+
+  // ✅ LỌC TOUR
+  const filteredTours = tours.filter((tour) => {
+    if (selectedLocation && selectedLocation !== "Tất cả địa điểm") {
+      if (!tour.location.includes(selectedLocation)) return false;
     }
 
-    if (selectedPriceRange && selectedPriceRange !== 'All Prices') {
+    if (selectedPriceRange && selectedPriceRange !== "Tất cả giá") {
+      const price = tour.price;
+
       const priceMatch = {
-        'Under $1000': tour.price < 1000,
-        '$1000-$1500': tour.price >= 1000 && tour.price <= 1500,
-        '$1500-$2000': tour.price >= 1500 && tour.price <= 2000,
-        'Over $2000': tour.price > 2000
+        "Dưới 200.000đ": price < 200000,
+        "200.000đ - 300.000đ": price >= 200000 && price <= 300000,
+        "300.000đ - 500.000đ": price >= 300000 && price <= 500000,
+        "Trên 500.000đ": price > 500000,
       };
+
       if (!priceMatch[selectedPriceRange]) return false;
     }
 
-    if (selectedDuration && selectedDuration !== 'All Durations') {
-      const days = parseInt(tour.duration);
-      const durationMatch = {
-        '1-5 days': days <= 5,
-        '6-10 days': days >= 6 && days <= 10,
-        'Over 10 days': days > 10
+    if (selectedDuration && selectedDuration !== "Tất cả thời lượng") {
+      const hours = tour.duration.includes("giờ")
+        ? parseInt(tour.duration)
+        : tour.duration.includes("ngày")
+          ? parseInt(tour.duration) * 24
+          : 0;
+
+      const timeMatch = {
+        "Dưới 4 giờ": hours < 4,
+        "Nửa ngày": hours >= 4 && hours <= 6,
+        "1 ngày": hours >= 24 && hours < 30,
+        "Trên 1 ngày": hours >= 30,
       };
-      if (!durationMatch[selectedDuration]) return false;
+
+      if (!timeMatch[selectedDuration]) return false;
     }
 
     return true;
@@ -79,133 +99,143 @@ const TourListPage = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
+      {/* Hero */}
       <section className="bg-blue-600 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">All Tours</h1>
-          <p className="text-xl text-blue-100">Discover amazing destinations around the world</p>
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Tour Miền Tây</h1>
+          <p className="text-xl text-blue-100">
+            Khám phá văn hóa – thiên nhiên – ẩm thực miền Tây sông nước
+          </p>
         </div>
       </section>
 
-      {/* Filters */}
+      {/* Bộ lọc */}
       <section className="py-8 bg-gray-50 border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {/* Địa điểm */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Location</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Địa điểm
+              </label>
               <div className="relative">
                 <select
                   value={selectedLocation}
                   onChange={(e) => setSelectedLocation(e.target.value)}
-                  className="w-full px-4 py-2 pr-8 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 appearance-none bg-white cursor-pointer"
+                  className="w-full px-4 py-2 pr-8 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 bg-white cursor-pointer"
                 >
-                  {locations.map(location => (
-                    <option key={location} value={location}>{location}</option>
+                  {locations.map((l) => (
+                    <option key={l} value={l}>
+                      {l}
+                    </option>
                   ))}
                 </select>
-                <div className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-                  <i className="ri-arrow-down-s-line text-gray-400"></i>
-                </div>
               </div>
             </div>
 
+            {/* Giá */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Price Range</label>
-              <div className="relative">
-                <select
-                  value={selectedPriceRange}
-                  onChange={(e) => setSelectedPriceRange(e.target.value)}
-                  className="w-full px-4 py-2 pr-8 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 appearance-none bg-white cursor-pointer"
-                >
-                  {priceRanges.map(range => (
-                    <option key={range} value={range}>{range}</option>
-                  ))}
-                </select>
-                <div className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-                  <i className="ri-arrow-down-s-line text-gray-400"></i>
-                </div>
-              </div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Giá
+              </label>
+              <select
+                value={selectedPriceRange}
+                onChange={(e) => setSelectedPriceRange(e.target.value)}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 bg-white cursor-pointer"
+              >
+                {priceRanges.map((range) => (
+                  <option key={range} value={range}>
+                    {range}
+                  </option>
+                ))}
+              </select>
             </div>
 
+            {/* Thời lượng */}
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Duration</label>
-              <div className="relative">
-                <select
-                  value={selectedDuration}
-                  onChange={(e) => setSelectedDuration(e.target.value)}
-                  className="w-full px-4 py-2 pr-8 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 appearance-none bg-white cursor-pointer"
-                >
-                  {durations.map(duration => (
-                    <option key={duration} value={duration}>{duration}</option>
-                  ))}
-                </select>
-                <div className="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none">
-                  <i className="ri-arrow-down-s-line text-gray-400"></i>
-                </div>
-              </div>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Thời lượng
+              </label>
+              <select
+                value={selectedDuration}
+                onChange={(e) => setSelectedDuration(e.target.value)}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 bg-white cursor-pointer"
+              >
+                {durations.map((d) => (
+                  <option key={d} value={d}>
+                    {d}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Tours Grid */}
+      {/* Danh sách tour */}
       <section className="py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center mb-8">
-            <h2 className="text-2xl font-bold text-gray-900">
-              {filteredTours.length} Tours Found
-            </h2>
-          </div>
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-2xl font-bold mb-8 text-gray-900">
+            {filteredTours.length} tour được tìm thấy
+          </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredTours.map((tour) => (
-              <div key={tour.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow cursor-pointer">
-                <div className="relative h-48 bg-gray-200">
+              <div
+                key={tour.id}
+                className="bg-white rounded-xl shadow-lg hover:shadow-xl overflow-hidden"
+              >
+                <div className="relative h-48">
                   <img
                     src={tour.image}
                     alt={tour.title}
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover"
                   />
                   <div className="absolute top-4 right-4 bg-white px-2 py-1 rounded-full text-sm font-semibold">
-                    <i className="ri-star-fill text-yellow-400 mr-1"></i>
-                    {tour.rating}
+                    ⭐ {tour.rating}
                   </div>
                 </div>
+
                 <div className="p-6">
-                  <div className="flex items-center text-gray-500 text-sm mb-2">
-                    <i className="ri-map-pin-line mr-1"></i>
-                    {tour.location}
+                  <div className="text-gray-500 text-sm flex items-center mb-2">
+                    📍 {tour.location}
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 flex-1">{tour.title}</h3>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center text-gray-600">
-                      <i className="ri-time-line mr-1"></i>
-                      {tour.duration}
-                    </div>
+
+                  <h3 className="text-xl font-bold mb-2">{tour.title}</h3>
+
+                  <div className="flex justify-between items-center mb-4">
+                    <div className="text-gray-600">⏱ {tour.duration}</div>
                     <div className="text-xl font-bold text-blue-600">
-                      ${tour.price}
+                      {tour.price.toLocaleString("vi-VN")}đ
                     </div>
                   </div>
-                  <Link to={`/tours/${tour.id}`} className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 block text-center">
-                    View Details
+
+                  <Link
+                    to={`/tours/${tour.id}`}
+                    className="w-full bg-blue-600 text-white py-3 rounded-lg block text-center font-semibold hover:bg-blue-700"
+                  >
+                    Xem chi tiết
                   </Link>
                 </div>
               </div>
             ))}
           </div>
 
+          {/* Không có tour */}
           {filteredTours.length === 0 && (
-            <div className="text-center py-12">
-              <div className="text-gray-500 text-lg">No tours found matching your criteria</div>
+            <div className="text-center py-10">
+              <p className="text-gray-500 text-lg">
+                Không có tour nào phù hợp với bộ lọc của bạn
+              </p>
               <button
                 onClick={() => {
-                  setSelectedLocation('');
-                  setSelectedPriceRange('');
-                  setSelectedDuration('');
+                  setSelectedLocation("");
+                  setSelectedPriceRange("");
+                  setSelectedDuration("");
                 }}
                 className="mt-4 bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700"
               >
-                Clear Filters
+                Xóa bộ lọc
               </button>
             </div>
           )}

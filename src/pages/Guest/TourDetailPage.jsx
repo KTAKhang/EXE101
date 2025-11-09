@@ -1,129 +1,92 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import anh1 from "../../assets/img/a1.jpg"
+import anh2 from "../../assets/img/a2.jpg"
+import anh3 from "../../assets/img/a3.jpg"
+import anh4 from "../../assets/img/a4.jpg"
+import anh5 from "../../assets/img/a5.jpg"
+import anh6 from "../../assets/img/a6.jpg"
+import { Link } from "react-router-dom";
 
-// Tour data - in a real app, this would come from your data file
+
+// ✅ NEW TOUR DATA (Giữ đúng cấu trúc)
 const tours = [
   {
     id: '1',
-    title: 'Immersive Day as a Traditional Mekong Delta Farmer',
-    location: 'Vinh Long / Can Tho',
-    price: "450,000 VND",
+    title: 'Trải Nghiệm Bắt Cá & Hái Trái Cây – Cần Thơ',
+    location: 'Phong Điền – Cần Thơ',
+    price: "250,000 VND",
     rating: 4.8,
-    reviews: 124,
-    duration: '1 day',
-    groupSize: 'Max 15 people',
-    difficulty: 'Easy',
-    description: 'Experience authentic farm life in the Mekong Delta! Harvest fresh produce, cook traditional dishes, and capture beautiful memories in the countryside with our basic photo package included.',
+    reviews: 112,
+    duration: '2–3 giờ',
+    groupSize: 'Tối đa 12 khách',
+    difficulty: 'Dễ',
+    description:
+      'Trải nghiệm đời sống miệt vườn Cần Thơ: lội mương bắt cá, hái trái cây tại vườn, thưởng thức ẩm thực dân dã và chụp ảnh phong cảnh đồng quê cực chill.',
     highlights: [
-      'Harvest vegetables and fruits with local farmers',
-      'Cook traditional dishes: grilled snakehead fish, Mekong-style pancakes',
-      'Lunch at garden house with traditional hammocks',
-      'Professional photo shoot in rice fields and countryside',
-      'Make traditional cakes (pandan leaf cake, baked sponge cake)',
-      'Includes conical hat and traditional áo bà ba attire'
+      'Lội mương bắt cá như nông dân miền Tây',
+      'Hái trái cây theo mùa tại vườn',
+      'Thưởng thức bánh xèo miền Tây tự tay làm',
+      'Chụp ảnh với áo bà ba và khung cảnh đồng quê',
+      'Tham quan vườn trái cây – ăn trái tại chỗ'
     ],
     itinerary: {
-      '8:00 AM': 'Pick-up at homestay or central meeting point',
-      '8:30 – 10:00 AM': 'Harvest vegetables/fruits with local farmers (boat ride to orchard)',
-      '10:00 – 11:30 AM': 'Cook traditional dishes: grilled snakehead fish, Mekong-style pancakes',
-      '11:30 AM – 1:00 PM': 'Lunch at garden house, rest on traditional hammocks',
-      '1:00 – 3:00 PM': 'Photo shoot in rice fields/ponds/countryside scenery',
-      '3:00 – 4:30 PM': 'Make traditional cakes (pandan leaf cake, baked sponge cake)',
-      '4:30 – 5:00 PM': 'Return and drop off guests'
+      '8:00 AM': 'Tập trung tại điểm hẹn Phong Điền – nhận áo bà ba',
+      '8:15 – 9:00 AM': 'Hái trái cây theo mùa tại vườn',
+      '9:00 – 10:00 AM': 'Lội mương bắt cá – trải nghiệm vui nhộn',
+      '10:00 – 11:00 AM': 'Đổ bánh xèo miền Tây – dùng bữa trưa nhẹ',
+      '11:00 – 12:00 AM': 'Chụp ảnh “miệt vườn vibe” & nghỉ ngơi võng'
     },
     includes: [
-      '10–15 photos with basic light adjustments (JPEG)',
-      '2 professionally edited bonus photos',
-      'Traditional áo bà ba attire and conical hat',
-      'All meals and cooking ingredients',
-      'Local farmer guide and transportation',
-      'All activities and entrance fees'
+      'Áo bà ba & nón lá',
+      '1 bữa ăn nhẹ (bánh xèo, trái cây)',
+      'Nước uống miễn phí',
+      'Vé tham quan vườn',
+      'Chi phí trải nghiệm bắt cá & hái trái cây',
+      'Hướng dẫn viên bản địa'
     ],
     images: [
-      'https://mia.vn/media/uploads/blog-du-lich/vuon-trai-cay-ben-tre-01-1696636918.jpeg',
-      'https://lavenderstudio.vn/wp-content/uploads/tao-dang-chup-anh-ao-dai-voi-non-la-dep-o-ho-sen.jpg',
-      'https://cafebiz.cafebizcdn.vn/162123310254002176/2024/1/17/photo-10-banh-trai-mien-tay-3-17054588673831717119554.jpg'
+      anh1, anh2, anh3
     ]
   },
+
   {
     id: '2',
-    title: 'Traditional Music & Sunset on the Mekong River',
-    location: 'My Tho – Ben Tre',
-    price: "500,000 VND",
+    title: 'Khám Phá Văn Hóa & Lịch Sử Sóc Trăng – 1 Ngày',
+    location: 'Sóc Trăng',
+    price: "350,000 VND",
     rating: 4.9,
-    reviews: 89,
-    duration: 'Half-day',
-    groupSize: 'Max 15 people',
-    difficulty: 'Easy',
-    description: 'Experience the magical sunset on the Mekong River while enjoying traditional Vietnamese music. Perfect for romantic moments and cultural immersion with professional photography.',
+    reviews: 98,
+    duration: '1 ngày (8:00 – 17:00)',
+    groupSize: 'Tối đa 20 khách',
+    difficulty: 'Dễ',
+    description:
+      'Hành trình khám phá văn hoá Khmer đặc sắc tại Sóc Trăng: chùa Som Rong, chùa Dơi, bảo tàng Khmer và trải nghiệm ẩm thực truyền thống.',
     highlights: [
-      'Visit fruit gardens and sample local delicacies',
-      'Paddle traditional sampan through small canals',
-      'Enjoy traditional Đờn ca tài tử music performance',
-      'Sunset photo shoot with "dreamy Mekong" concept',
-      'Tea service on the river',
-      'Traditional áo bà ba costume included'
+      'Tham quan chùa Som Rong – tuyệt đẹp với tượng Phật nằm',
+      'Khám phá chùa Dơi linh thiêng',
+      'Tham quan bảo tàng văn hóa Khmer',
+      'Chụp ảnh phong cách Khmer truyền thống',
+      'Thưởng thức bún nước lèo và bánh Pía đặc sản Sóc Trăng'
     ],
     itinerary: {
-      '2:00 PM': 'Pick-up at the tourism pier',
-      '2:30 – 3:30 PM': 'Visit islets, explore fruit gardens, sample local delicacies',
-      '3:30 – 4:30 PM': 'Paddle sampan through small canals, photo session in áo bà ba',
-      '4:30 – 6:00 PM': 'Large boat to middle of Mekong River, tea and traditional music',
-      '6:00 – 6:45 PM': 'Sunset photo shoot on the river with "dreamy Mekong" concept',
-      '7:00 PM': 'Tour ends'
+      '8:00 AM': 'Đón khách tại trung tâm Sóc Trăng',
+      '8:30 – 10:00 AM': 'Tham quan chùa Som Rong – điểm check-in nổi tiếng',
+      '10:00 – 11:30 AM': 'Khám phá chùa Dơi – tìm hiểu văn hoá Phật giáo Nam Tông',
+      '11:30 AM – 1:00 PM': 'Ăn trưa với món Khmer truyền thống',
+      '1:00 – 3:00 PM': 'Thăm Bảo tàng Văn hoá Khmer',
+      '3:00 – 5:00 PM': 'Tự do tham quan & mua đặc sản bánh Pía – kết thúc tour'
     },
     includes: [
-      '15 wide-angle and portrait shots',
-      '1 behind-the-scenes highlight video (30–60 seconds)',
-      'Traditional áo bà ba costume',
-      'Tea service and light refreshments',
-      'Traditional music performance',
-      'Premium editing option available'
+      'Vé vào cổng các điểm tham quan',
+      'Hướng dẫn viên văn hóa Khmer',
+      'Bữa trưa món Khmer truyền thống',
+      'Nước uống & khăn lạnh',
+      'Bảo hiểm du lịch',
+      'Xe đưa đón suốt hành trình'
     ],
     images: [
-      'https://elitetour.com.vn/files/images/Blogs/cu-lao-tan-qui.jpg',
-      'https://thienmekongtravel.com/wp-content/uploads/2022/12/conphung.jpg',
-      'https://images.baodantoc.vn/uploads/2024/Thang-8/Ngay-21/Bang-Ngan/5t49.jpg'
-    ]
-  },
-  {
-    id: '3',
-    title: 'Mekong Memories – Floating Market & Traditional Craft Village',
-    location: 'Cai Rang (Can Tho)',
-    price: "400,000 VND",
-    rating: 4.7,
-    reviews: 156,
-    duration: 'Morning',
-    groupSize: 'Max 15 people',
-    difficulty: 'Easy',
-    description: 'Start your day early at the famous Cai Rang Floating Market, enjoy breakfast on the river, and explore traditional craft villages with nostalgic photo opportunities.',
-    highlights: [
-      'Visit famous Cai Rang Floating Market',
-      'Unique "breakfast on the river" experience',
-      'Visit rice noodle or rice paper-making villages',
-      'Interact with locals and try traditional crafts',
-      'Artistic photos in nostalgic setting',
-      'Vintage Mekong concept with traditional áo dài'
-    ],
-    itinerary: {
-      '5:30 AM': 'Pick-up and boat ride to Cai Rang Floating Market',
-      '6:00 – 7:00 AM': 'Breakfast on boat: bun rieu or hu tieu - unique river dining',
-      '7:00 – 8:00 AM': 'Visit rice noodle or rice paper-making villages',
-      '8:00 – 9:30 AM': 'Interact with locals, try traditional crafts, nostalgic photos',
-      '9:30 – 11:00 AM': 'Return by boat, morning river photo session'
-    },
-    includes: [
-      '12 lightly color-graded photos',
-      'Commemorative collage photo (photo + tour info)',
-      'Traditional áo dài and checkered scarf',
-      'Breakfast on the river',
-      'Local guide and transportation',
-      'All craft activities and materials'
-    ],
-    images: [
-      'https://thamhiemmekong.com/wp-content/uploads/2019/05/lo-hu-tieu-can-tho-3.jpg',
-      'https://media.vov.vn/sites/default/files/styles/large_watermark/public/2023-02/329518642_1151748552200787_4237649310514734967_n.jpg',
-      'https://thamhiemmekong.com/wp-content/uploads/2019/07/lang-nghe-cham-non-la-can-tho-1.jpg'
+      anh4, anh5, anh6
     ]
   }
 ];
@@ -160,7 +123,8 @@ const TourDetailPage = () => {
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Tour Images */}
+
+            {/* ✅ Ảnh (không đổi UI) */}
             <div>
               <div className="mb-4">
                 <img
@@ -174,7 +138,8 @@ const TourDetailPage = () => {
                   <button
                     key={index}
                     onClick={() => setSelectedImage(index)}
-                    className={`border-2 rounded-lg overflow-hidden ${selectedImage === index ? 'border-blue-500' : 'border-gray-200'}`}
+                    className={`border-2 rounded-lg overflow-hidden ${selectedImage === index ? 'border-blue-500' : 'border-gray-200'
+                      }`}
                   >
                     <img
                       src={image}
@@ -186,7 +151,7 @@ const TourDetailPage = () => {
               </div>
             </div>
 
-            {/* Tour Info */}
+            {/* ✅ Thông tin tour – giữ nguyên UI */}
             <div>
               <div className="mb-6">
                 <div className="flex items-center text-gray-500 text-sm mb-2">
@@ -199,22 +164,20 @@ const TourDetailPage = () => {
                     {renderStars(tour.rating)}
                     <span className="ml-2 text-gray-600">{tour.rating}</span>
                   </div>
-                  <span className="text-gray-500">({tour.reviews} reviews)</span>
+                  <span className="text-gray-500">({tour.reviews} Đánh giá)</span>
                 </div>
-                <div className="text-3xl font-bold text-blue-600 mb-6">${tour.price}</div>
+                <div className="text-3xl font-bold text-blue-600 mb-6">
+                  {tour.price}
+                </div>
 
-                <div className="grid grid-cols-3 gap-4 mb-6">
+                <div className="grid grid-cols-2 gap-4 mb-6">
                   <div className="text-center p-3 bg-gray-50 rounded-lg">
                     <div className="text-lg font-semibold text-gray-900">{tour.duration}</div>
-                    <div className="text-sm text-gray-600">Duration</div>
+                    <div className="text-sm text-gray-600">Khoảng thời gian</div>
                   </div>
                   <div className="text-center p-3 bg-gray-50 rounded-lg">
                     <div className="text-lg font-semibold text-gray-900">{tour.groupSize}</div>
-                    <div className="text-sm text-gray-600">Group Size</div>
-                  </div>
-                  <div className="text-center p-3 bg-gray-50 rounded-lg">
-                    <div className="text-lg font-semibold text-gray-900">{tour.difficulty}</div>
-                    <div className="text-sm text-gray-600">Difficulty</div>
+                    <div className="text-sm text-gray-600">Kích thước nhóm</div>
                   </div>
                 </div>
               </div>
@@ -224,17 +187,15 @@ const TourDetailPage = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <button className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                <Link
+                  to="https://www.facebook.com/profile.php?id=61583250337486"
+                  className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-center inline-block rounded-lg font-semibold"
+                >
                   <i className="ri-calendar-line mr-2"></i>
-                  Book Now
-                </button>
-                <button className="flex-1 bg-gray-100 text-gray-800 py-3 px-6 rounded-lg font-semibold hover:bg-gray-200 transition-colors">
-                  <i className="ri-heart-line mr-2"></i>
-                  Add to Wishlist
-                </button>
+                  Đặt Tour Ngay
+                </Link>
               </div>
 
-              {/* Highlights */}
               <div className="mb-8">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">Highlights</h3>
                 <ul className="space-y-2">
@@ -249,24 +210,27 @@ const TourDetailPage = () => {
             </div>
           </div>
 
-          {/* Itinerary */}
+          {/* ✅ Itinerary */}
           <div className="mt-16">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Itinerary</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">Hành trình</h3>
             <div className="bg-gray-50 rounded-lg p-6">
               <div className="space-y-4">
-                {Object.entries(tour.itinerary).map(([day, activity]) => (
-                  <div key={day} className="flex justify-between py-2 border-b border-gray-200 last:border-b-0">
-                    <span className="font-medium text-gray-700">{day}</span>
-                    <span className="text-gray-600">{activity}</span>
+                {Object.entries(tour.itinerary).map(([time, detail]) => (
+                  <div
+                    key={time}
+                    className="flex justify-between py-2 border-b border-gray-200 last:border-b-0"
+                  >
+                    <span className="font-medium text-gray-700">{time}</span>
+                    <span className="text-gray-600">{detail}</span>
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
-          {/* What's Included */}
+          {/* ✅ Includes */}
           <div className="mt-16">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">What's Included</h3>
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">Những gì bao gồm</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {tour.includes.map((item, index) => (
                 <div key={index} className="flex items-center text-gray-700">

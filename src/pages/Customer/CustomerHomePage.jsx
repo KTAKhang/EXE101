@@ -4,30 +4,21 @@ const CustomerHomePage = () => {
   const featuredTours = [
     {
       id: '1',
-      title: 'Immersive Day as a Traditional Mekong Delta Farmer',
-      location: 'Vinh Long / Can Tho',
-      price: "450,000 VND",
-      duration: '1 day',
-      rating: 4.7,
-      image: 'https://suntravelgroup.vn/media/4215/c%E1%BA%A7n-th%C6%A1-2.jpg?width=1300&height=720&mode=crop'
+      title: 'Trải Nghiệm Bắt Cá & Hái Trái Cây – Cần Thơ',
+      location: 'Phong Điền – Cần Thơ',
+      price: "250,000 VND",
+      duration: '2–3 giờ',
+      rating: 4.8,
+      image: 'https://images.unsplash.com/photo-1526318472351-bc6c2ac1f1c3?auto=format&fit=crop&w=1200&q=80'
     },
     {
       id: '2',
-      title: 'Traditional Music & Sunset on the Mekong River',
-      location: 'My Tho – Ben Tre',
-      price: "500,000 VND",
-      duration: 'Half-day afternoon',
-      rating: 4.6,
-      image: 'https://static-images.vnncdn.net/vps_images_publish/000001/000003/2025/6/27/du-lich-ben-tre-khach-tay-nghe-don-ca-tai-tu-tat-muong-bat-ca-lam-keo-dua-88966.jpg?width=0&s=8ERrUWb0g7GKF0LLlt16og'
-    },
-    {
-      id: '3',
-      title: 'Mekong Memories – Floating Market & Traditional Craft Village',
-      location: 'Cai Rang (Can Tho)',
-      price: "400,000 VND",
-      duration: 'Morning',
-      rating: 4.8,
-      image: 'https://anhdaomekong2hotel.vn/upload/images/du-lich-can-tho-1.png'
+      title: 'Khám Phá Văn Hóa & Lịch Sử Sóc Trăng – 1 Ngày',
+      location: 'Sóc Trăng',
+      price: "350,000 VND",
+      duration: '1 ngày (8:00 – 17:00)',
+      rating: 4.9,
+      image: 'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80'
     }
   ];
 

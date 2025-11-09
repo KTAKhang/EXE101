@@ -20,69 +20,73 @@ const ContactPage = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
     setTimeout(() => {
-      alert('Thank you for your message! We will get back to you soon.');
+      alert('Cảm ơn bạn đã gửi yêu cầu! Chúng tôi sẽ phản hồi các thắc mắc về tour sớm nhất có thể.');
       setFormData({ name: '', email: '', subject: '', message: '' });
       setIsSubmitting(false);
     }, 1000);
   };
 
+  // 🚨 ĐÃ CẬP NHẬT: Thông tin liên hệ về Tour
   const contactInfo = [
     {
       icon: 'ri-map-pin-line',
-      title: 'Address',
-      content: '123 Commerce Street, Business District, City, Country 12345'
+      title: 'Văn phòng Cần Thơ',
+      content: '12 Đường Mậu Thân, Quận Ninh Kiều, Cần Thơ, Việt Nam'
     },
     {
       icon: 'ri-phone-line',
-      title: 'Phone',
-      content: '+1 (555) 123-4567'
+      title: 'Hotline Đặt Tour',
+      content: '+84 901 888 999' // Số điện thoại giả định
     },
     {
       icon: 'ri-mail-line',
-      title: 'Email',
-      content: 'support@yourstore.com'
+      title: 'Email Hỗ trợ',
+      content: 'support.mientaytour@email.com' // Email giả định
     },
     {
       icon: 'ri-time-line',
-      title: 'Business Hours',
-      content: 'Monday - Friday: 9:00 AM - 6:00 PM'
+      title: 'Hỗ trợ Tư vấn',
+      content: 'Thứ 2 - Chủ Nhật: 8:00 AM - 9:00 PM' // Giờ làm việc du lịch thường dài hơn
     }
   ];
 
+  // 🚨 ĐÃ CẬP NHẬT: FAQs về các Tour du lịch
   const faqs = [
     {
-      question: "How can I track my order?",
-      answer: "You can track your order by logging into your account and visiting the 'My Orders' section, or by using the tracking number provided in your order confirmation email."
+      question: "Làm cách nào để đặt tour Trải Nghiệm Bắt Cá?",
+      answer: "Quý khách vui lòng đặt tour trực tiếp qua Fanpage chính thức của chúng tôi: https://www.facebook.com/profile.php?id=61583250337486. Hoặc liên hệ Hotline để được hỗ trợ nhanh nhất."
     },
     {
-      question: "What is your return policy?",
-      answer: "We offer a 30-day return policy for most items. Products must be in their original condition and packaging. Please contact our customer service team to initiate a return."
+      question: "Giá tour đã bao gồm chi phí ăn uống chưa?",
+      answer: "Giá tour đã bao gồm các hoạt động chính và một số bữa ăn/thưởng thức đặc sản được ghi rõ trong chi tiết từng tour. Ví dụ: Tour Sóc Trăng đã bao gồm bữa trưa đặc sản."
     },
     {
-      question: "Do you ship internationally?",
-      answer: "Yes, we ship to most countries worldwide. Shipping costs and delivery times vary by location. You can check shipping options during checkout."
+      question: "Tôi có cần mang theo trang phục gì đặc biệt khi đi tour không?",
+      answer: "Đối với Tour Bắt Cá ở Cần Thơ, chúng tôi cung cấp áo bà ba. Bạn chỉ cần mang theo quần áo thoải mái, nón, kem chống nắng và các vật dụng cá nhân cần thiết khác."
     },
     {
-      question: "How can I contact customer support?",
-      answer: "You can reach our customer support team through email, phone, or by filling out the contact form on this page. We typically respond within 24 hours."
+      question: "Chính sách hủy và hoàn tiền tour như thế nào?",
+      answer: "Chính sách hủy tour sẽ được quy định rõ ràng khi quý khách xác nhận đặt chỗ qua Fanpage. Thường sẽ được hoàn tiền nếu hủy trước 48 giờ, trừ phí dịch vụ nhỏ."
     }
   ];
 
   return (
     <div className="min-h-screen bg-white">
+
       {/* Hero Section */}
       <section className="bg-blue-600 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
-          <p className="text-xl text-blue-100">We're here to help and answer any questions you might have</p>
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Liên Hệ & Hỗ Trợ Đặt Tour</h1>
+          <p className="text-xl text-blue-100">
+            Đội ngũ tư vấn của chúng tôi luôn sẵn sàng hỗ trợ mọi thông tin về tour
+          </p>
         </div>
       </section>
 
-      {/* Contact Information */}
+      {/* Contact Info */}
       <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {contactInfo.map((info, index) => (
               <div key={index} className="text-center">
@@ -96,117 +100,116 @@ const ContactPage = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+
             {/* Contact Form */}
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Send us a Message</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">Gửi Yêu Cầu Tư Vấn Tour</h2>
               <form onSubmit={handleSubmit} className="space-y-6">
+
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                    Full Name *
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Họ và tên *
                   </label>
                   <input
                     type="text"
-                    id="name"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Enter your full name"
+                    className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                    placeholder="Nhập họ và tên"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email Address *
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Email *
                   </label>
                   <input
                     type="email"
-                    id="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Enter your email address"
+                    className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                    placeholder="Nhập email"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                    Subject *
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Tiêu đề (Ví dụ: Hỏi về Tour Sóc Trăng) *
                   </label>
                   <input
                     type="text"
-                    id="subject"
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Enter subject"
+                    className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                    placeholder="Nhập tiêu đề"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    Message *
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Nội dung (Ngày dự kiến, số người, thắc mắc...) *
                   </label>
                   <textarea
-                    id="message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
-                    required
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                    placeholder="Enter your message"
+                    required
+                    className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500"
+                    placeholder="Nhập nội dung tin nhắn"
                   ></textarea>
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition"
                 >
                   {isSubmitting ? (
                     <span className="flex items-center justify-center">
                       <i className="ri-loader-4-line animate-spin mr-2"></i>
-                      Sending...
+                      Đang gửi...
                     </span>
                   ) : (
-                    'Send Message'
+                    'Gửi Yêu Cầu Tư Vấn'
                   )}
                 </button>
               </form>
             </div>
 
-            {/* Map and Additional Info */}
+            {/* Map + Support */}
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Visit Our Office</h2>
-              <div className="bg-gray-200 rounded-lg h-64 mb-6 flex items-center justify-center">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">Văn Phòng Tư Vấn</h2>
+
+              <div className="bg-gray-200 rounded-lg h-64 mb-6">
+                {/* Thay thế bằng bản đồ văn phòng Cần Thơ thực tế */}
                 <iframe
                   src="https://www.google.com/maps?q=FPT+University+Can+Tho&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
-                  allowFullScreen=""
                   loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
                 />
               </div>
 
               <div className="bg-blue-50 rounded-lg p-6">
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">Customer Support</h3>
+                <h3 className="text-lg font-semibold mb-4">Hỗ Trợ Đặt Tour & Khẩn Cấp</h3>
                 <p className="text-gray-700 mb-4">
-                  Our customer support team is available to help you with any questions or concerns you may have about our products or services.
+                  Để đặt tour nhanh nhất, quý khách vui lòng liên hệ trực tiếp qua Fanpage hoặc Hotline.
                 </p>
                 <div className="space-y-2 text-sm text-gray-600">
-                  <p><strong>Response Time:</strong> Within 24 hours</p>
-                  <p><strong>Support Hours:</strong> Monday - Friday, 9:00 AM - 6:00 PM</p>
-                  <p><strong>Emergency:</strong> Available 24/7 for urgent matters</p>
+                  <p><strong>Thời gian phản hồi qua Form:</strong> Trong vòng 24 giờ</p>
+                  <p><strong>Giờ làm việc:</strong> Thứ 2 – Chủ Nhật, 8:00 – 21:00</p>
+                  <p><strong>Khẩn cấp/Tour đang diễn ra:</strong> Hỗ trợ 24/7 qua Hotline</p>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
@@ -214,48 +217,53 @@ const ContactPage = () => {
 
       {/* FAQ Section */}
       <section className="py-16 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-            <p className="text-xl text-gray-600">Find answers to common questions</p>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Câu Hỏi Thường Gặp Về Tour</h2>
+            <p className="text-xl text-gray-600">Các thắc mắc phổ biến về việc đặt tour và chi phí</p>
           </div>
 
           <div className="space-y-6">
             {faqs.map((faq, index) => (
               <div key={index} className="bg-white rounded-lg p-6 shadow-sm">
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">{faq.question}</h3>
+                <h3 className="text-lg font-semibold mb-3">{faq.question}</h3>
                 <p className="text-gray-700">{faq.answer}</p>
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-16 bg-blue-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Still Have Questions?</h2>
-          <p className="text-xl text-blue-100 mb-8">Our team is here to help you find the perfect products</p>
+        <div className="text-center text-white max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-4">Vẫn Còn Thắc Mắc Về Tour?</h2>
+          <p className="text-xl text-blue-100 mb-8">Liên hệ đội ngũ hỗ trợ của chúng tôi ngay</p>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="mailto:support@yourstore.com"
-              className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+              href="mailto:support.mientaytour@email.com"
+              className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100"
             >
               <i className="ri-mail-line mr-2"></i>
-              Email Us
+              Gửi Email Hỗ Trợ
             </a>
+
             <a
-              href="tel:+15551234567"
-              className="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors"
+              href="tel:+84901888999"
+              className="border-2 border-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-600"
             >
               <i className="ri-phone-line mr-2"></i>
-              Call Us
+              Gọi Hotline
             </a>
           </div>
+
         </div>
       </section>
+
     </div>
   );
 };
 
-export default ContactPage; 
+export default ContactPage;

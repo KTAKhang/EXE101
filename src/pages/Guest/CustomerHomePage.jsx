@@ -1,69 +1,149 @@
 import { Link } from "react-router-dom";
-
+import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import anh3 from "../../assets/img/a3.jpg"
+import anh5 from "../../assets/img/a5.jpg"
 const CustomerHomePage = () => {
-  const featuredTours = [
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slides = [
     {
-      id: '1',
-      title: 'Immersive Day as a Traditional Mekong Delta Farmer',
-      location: 'Vinh Long / Can Tho',
-      price: "450,000 VND",
-      duration: '1 day',
-      rating: 4.7,
-      image: 'https://suntravelgroup.vn/media/4215/c%E1%BA%A7n-th%C6%A1-2.jpg?width=1300&height=720&mode=crop'
+      image: 'https://readdy.ai/api/search-image?query=Stunning%20travel%20destination%20panoramic%20view%20with%20mountains%2C%20ocean%2C%20and%20adventure%20activities%2C%20epic%20landscape%20for%20travel%20website%20hero%20section%2C%20inspiring%20wanderlust%20feeling%2C%20professional%20travel%20photography&width=1920&height=1080&seq=hero-travel&orientation=landscape',
+      title: 'Khám Phá Hành Trình Tiếp Theo Của Bạn',
+      description: 'Trải nghiệm những điểm đến tuyệt đẹp và tạo nên những kỷ niệm khó quên với các tour được thiết kế chuyên nghiệp'
     },
     {
-      id: '2',
-      title: 'Traditional Music & Sunset on the Mekong River',
-      location: 'My Tho – Ben Tre',
-      price: "500,000 VND",
-      duration: 'Half-day afternoon',
-      rating: 4.6,
-      image: 'https://static-images.vnncdn.net/vps_images_publish/000001/000003/2025/6/27/du-lich-ben-tre-khach-tay-nghe-don-ca-tai-tu-tat-muong-bat-ca-lam-keo-dua-88966.jpg?width=0&s=8ERrUWb0g7GKF0LLlt16og'
+      image: 'https://transviet.com.vn/Media/Uploads/tour/HL/VN/tim-ve-mien-tay-song-nuoc-hanh-trinh-tren-dat-phu-sa.jpg',
+      title: 'Trải Nghiệm Miền Tây Sông Nước',
+      description: 'Khám phá vẻ đẹp bình dị của đồng bằng sông Cửu Long với vườn trái cây và làng nghề truyền thống'
     },
     {
-      id: '3',
-      title: 'Mekong Memories – Floating Market & Traditional Craft Village',
-      location: 'Cai Rang (Can Tho)',
-      price: "400,000 VND",
-      duration: 'Morning',
-      rating: 4.8,
-      image: 'https://anhdaomekong2hotel.vn/upload/images/du-lich-can-tho-1.png'
+      image: 'https://exotrails.com/wp-content/uploads/2024/11/chua-som-rong.jpg',
+      title: 'Khám Phá Di Sản Văn Hóa',
+      description: 'Hành trình khám phá những ngôi chùa cổ kính và di tích lịch sử độc đáo của vùng đất phương Nam'
+    },
+    {
+      image: 'https://booking.muongthanh.com/upload_images/images/2024%20-%20Nh/thuong-thuc-am-thuc-cho-noi.jpg',
+      title: 'Chợ Nổi Cần Thơ',
+      description: 'Trải nghiệm không gian mua bán độc đáo trên sông nước và thưởng thức ẩm thực địa phương đặc sắc'
     }
   ];
 
+  const featuredTours = [
+    {
+      id: '1',
+      title: 'Trải Nghiệm Bắt Cá & Hái Trái Cây – Cần Thơ',
+      location: 'Phong Điền – Cần Thơ',
+      price: "250,000 VND",
+      duration: '2–3 giờ',
+      rating: 4.8,
+      image: anh3
+    },
+    {
+      id: '2',
+      title: 'Khám Phá Văn Hóa & Lịch Sử Sóc Trăng – 1 Ngày',
+      location: 'Sóc Trăng',
+      price: "350,000 VND",
+      duration: '1 ngày (8:00 – 17:00)',
+      rating: 4.9,
+      image: anh5
+    }
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [slides.length]);
+
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section
-        className="relative h-screen flex items-center justify-center bg-cover bg-center"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://readdy.ai/api/search-image?query=Stunning%20travel%20destination%20panoramic%20view%20with%20mountains%2C%20ocean%2C%20and%20adventure%20activities%2C%20epic%20landscape%20for%20travel%20website%20hero%20section%2C%20inspiring%20wanderlust%20feeling%2C%20professional%20travel%20photography&width=1920&height=1080&seq=hero-travel&orientation=landscape')`
-        }}
-      >
-        <div className="text-center text-white max-w-4xl mx-auto px-4">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Discover Your Next Adventure
-          </h1>
-          <p className="text-xl md:text-2xl mb-8 text-gray-200">
-            Explore breathtaking destinations and create unforgettable memories with our expertly crafted tours
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/tours" className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 whitespace-nowrap">
-              Explore Tours
-            </Link>
-            <Link to="/search" className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-gray-900 whitespace-nowrap">
-              Search Destinations
-            </Link>
+      {/* Hero Carousel Section */}
+      <section className="relative h-screen overflow-hidden">
+        {/* Slides */}
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`absolute inset-0 transition-opacity duration-1000 ${index === currentSlide ? 'opacity-100' : 'opacity-0'
+              }`}
+            style={{
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('${slide.image}')`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
+          >
+            <div className="h-full flex items-center justify-center">
+              <div className="text-center text-white max-w-4xl mx-auto px-4">
+                <h1 className="text-5xl md:text-6xl font-bold mb-6">
+                  {slide.title}
+                </h1>
+                <p className="text-xl md:text-2xl mb-8 text-gray-200">
+                  {slide.description}
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link to="/tours" className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 whitespace-nowrap">
+                    Khám Phá Tour
+                  </Link>
+                  <Link to="/search" className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-gray-900 whitespace-nowrap">
+                    Tìm Điểm Đến
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
+        ))}
+
+        {/* Navigation Arrows */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition z-10"
+          aria-label="Previous slide"
+        >
+          <ChevronLeft size={32} />
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white p-3 rounded-full transition z-10"
+          aria-label="Next slide"
+        >
+          <ChevronRight size={32} />
+        </button>
+
+        {/* Dots Indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3 z-10">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`w-3 h-3 rounded-full transition-all ${index === currentSlide
+                ? 'bg-white w-8'
+                : 'bg-white/50 hover:bg-white/75'
+                }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
         </div>
       </section>
 
-      {/* Featured Products */}
+      {/* Featured Tours */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Featured Tours</h2>
-            <p className="text-xl text-gray-600">Handpicked adventures for every type of traveler</p>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Tour Nổi Bật</h2>
+            <p className="text-xl text-gray-600">Những hành trình được lựa chọn dành riêng cho bạn</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -91,12 +171,10 @@ const CustomerHomePage = () => {
                       <i className="ri-time-line mr-1"></i>
                       {tour.duration}
                     </div>
-                    <div className="text-2xl font-bold text-blue-600">
-                      ${tour.price}
-                    </div>
+                    <div className="text-2xl font-bold text-blue-600">{tour.price}</div>
                   </div>
                   <Link to={`/tours/${tour.id}`} className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 block text-center">
-                    View Details
+                    Xem Chi Tiết
                   </Link>
                 </div>
               </div>
@@ -105,7 +183,7 @@ const CustomerHomePage = () => {
 
           <div className="text-center mt-12">
             <Link to="/tours" className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700">
-              View All Tours
+              Xem Tất Cả Tour
             </Link>
           </div>
         </div>
@@ -113,32 +191,34 @@ const CustomerHomePage = () => {
 
       {/* Promotions */}
       <section className="py-16 bg-blue-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-white mb-4">Special Offers</h2>
-          <p className="text-xl text-blue-100 mb-8">Limited time deals you don't want to miss</p>
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold text-white mb-4">Ưu Đãi Đặc Biệt</h2>
+          <p className="text-xl text-blue-100 mb-8">Các chương trình khuyến mãi giới hạn thời gian</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Early Bird */}
             <div className="bg-white rounded-xl p-8 text-center">
               <div className="w-16 h-16 flex items-center justify-center bg-green-100 rounded-full mx-auto mb-4">
                 <i className="ri-percent-line text-2xl text-green-600"></i>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Early Bird Special</h3>
-              <p className="text-gray-600 mb-4">Book 3 months in advance and save up to 25% on all tours</p>
-              <div className="text-3xl font-bold text-green-600 mb-4">25% OFF</div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Giá Sớm – Early Bird</h3>
+              <p className="text-gray-600 mb-4">Đặt trước 3 tháng và nhận ưu đãi lên đến 25%</p>
+              <div className="text-3xl font-bold text-green-600 mb-4">25% GIẢM</div>
               <Link to="/tours" className="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700">
-                Book Now
+                Đặt Ngay
               </Link>
             </div>
 
+            {/* Group Discount */}
             <div className="bg-white rounded-xl p-8 text-center">
               <div className="w-16 h-16 flex items-center justify-center bg-orange-100 rounded-full mx-auto mb-4">
-                <i className="ri-truck-line text-2xl text-orange-600"></i>
+                <i className="ri-user-group-line text-2xl text-orange-600"></i>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Group Discount</h3>
-              <p className="text-gray-600 mb-4">Travel with friends and family - groups of 4+ get exclusive rates</p>
-              <div className="text-3xl font-bold text-orange-600 mb-4">15% OFF</div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">Giảm Giá Nhóm</h3>
+              <p className="text-gray-600 mb-4">Đi theo nhóm 4 người trở lên để nhận giá ưu đãi đặc biệt</p>
+              <div className="text-3xl font-bold text-orange-600 mb-4">15% GIẢM</div>
               <Link to="/contact" className="bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-orange-700">
-                Contact Us
+                Liên Hệ Tư Vấn
               </Link>
             </div>
           </div>
@@ -147,10 +227,10 @@ const CustomerHomePage = () => {
 
       {/* Why Choose Us */}
       <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose Us</h2>
-            <p className="text-xl text-gray-600">Your trusted partner for quality products</p>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Tại Sao Chọn Chúng Tôi</h2>
+            <p className="text-xl text-gray-600">Người bạn đồng hành đáng tin cậy cho mọi chuyến đi</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -158,24 +238,24 @@ const CustomerHomePage = () => {
               <div className="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-full mx-auto mb-4">
                 <i className="ri-shield-check-line text-2xl text-blue-600"></i>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Expert Guides</h3>
-              <p className="text-gray-600">Professional local guides with deep knowledge of destinations</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Hướng Dẫn Viên Chuyên Nghiệp</h3>
+              <p className="text-gray-600">Đội ngũ am hiểu sâu sắc văn hóa & lịch sử địa phương</p>
             </div>
 
             <div className="text-center">
               <div className="w-16 h-16 flex items-center justify-center bg-green-100 rounded-full mx-auto mb-4">
                 <i className="ri-customer-service-line text-2xl text-green-600"></i>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">24/7 Support</h3>
-              <p className="text-gray-600">Round-the-clock customer support for your peace of mind</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Hỗ Trợ 24/7</h3>
+              <p className="text-gray-600">Luôn sẵn sàng hỗ trợ bạn trong mọi tình huống</p>
             </div>
 
             <div className="text-center">
               <div className="w-16 h-16 flex items-center justify-center bg-purple-100 rounded-full mx-auto mb-4">
                 <i className="ri-medal-line text-2xl text-purple-600"></i>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Best Value</h3>
-              <p className="text-gray-600">Competitive prices with premium experiences included</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Giá Trị Tốt Nhất</h3>
+              <p className="text-gray-600">Giá hợp lý – trải nghiệm chất lượng cao</p>
             </div>
           </div>
         </div>
@@ -184,4 +264,4 @@ const CustomerHomePage = () => {
   );
 };
 
-export default CustomerHomePage; 
+export default CustomerHomePage;

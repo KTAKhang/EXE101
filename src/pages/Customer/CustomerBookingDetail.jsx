@@ -5,154 +5,85 @@ import DashboardLayout from "../../components/Customer/DashboardLayout";
 // Danh sách dữ liệu booking mẫu
 const BOOKINGS = [
   {
-    id: 'BK-2024-001',
-    tour: 'A Day as a Farmer in the Mekong Delta',
-    destination: 'Vinh Long / Can Tho',
-    date: '2024-03-15',
-    duration: '1 day (8:00 AM – 5:00 PM)',
-    amount: '450,000 VND',
-    status: 'confirmed',
-    travelers: 2,
-    bookingDate: '2024-01-20',
-    paymentStatus: 'paid',
-    paymentMethod: 'Credit Card',
-    image: 'https://suntravelgroup.vn/media/4215/c%E1%BA%A7n-th%C6%A1-2.jpg?width=1300&height=720&mode=crop',
-    description: 'Trải nghiệm một ngày làm nông dân miền Tây, tham gia các hoạt động nông nghiệp, nấu ăn, chụp ảnh và làm bánh truyền thống.',
-    meetingPoint: 'Homestay hoặc điểm tập trung trung tâm',
-    meetingTime: '08:00 AM',
-    endTime: '05:00 PM',
-    included: [
-      '10–15 ảnh chỉnh sáng cơ bản (JPEG)',
-      '2 ảnh bonus chỉnh chuyên nghiệp',
-      'Gợi ý trang phục: nón lá, áo bà ba',
-      'Tham gia thu hoạch trái cây, nấu ăn, làm bánh',
-      'Ăn trưa tại nhà vườn',
-      'Thuyền di chuyển vào vườn',
-      'Bảo hiểm du lịch'
+    id: '1',
+    title: 'Trải Nghiệm Bắt Cá & Hái Trái Cây – Cần Thơ',
+    location: 'Phong Điền – Cần Thơ',
+    price: "250,000 VND",
+    rating: 4.8,
+    reviews: 112,
+    duration: '2–3 giờ',
+    groupSize: 'Tối đa 12 khách',
+    difficulty: 'Dễ',
+    description:
+      'Trải nghiệm đời sống miệt vườn Cần Thơ: lội mương bắt cá, hái trái cây tại vườn, thưởng thức ẩm thực dân dã và chụp ảnh phong cảnh đồng quê cực chill.',
+    highlights: [
+      'Lội mương bắt cá như nông dân miền Tây',
+      'Hái trái cây theo mùa tại vườn',
+      'Thưởng thức bánh xèo miền Tây tự tay làm',
+      'Chụp ảnh với áo bà ba và khung cảnh đồng quê',
+      'Tham quan vườn trái cây – ăn trái tại chỗ'
     ],
-    notIncluded: [
-      'Chi phí cá nhân',
-      'Tiền tip',
-      'Bảo hiểm ngoài chương trình',
-      'Đồ uống ngoài bữa ăn'
-    ],
-    itinerary: [
-      { time: '08:00', activity: 'Đón tại homestay hoặc điểm tập trung' },
-      { time: '08:30 – 10:00', activity: 'Thu hoạch rau/trái cây cùng nông dân (đi thuyền vào vườn)' },
-      { time: '10:00 – 11:30', activity: 'Học nấu món dân dã: cá lóc nướng, bánh xèo miền Tây' },
-      { time: '11:30 – 13:00', activity: 'Ăn trưa tại nhà vườn, nghỉ võng truyền thống' },
-      { time: '13:00 – 15:00', activity: 'Chụp ảnh tạo dáng ở ruộng/vườn/cảnh làng quê' },
-      { time: '15:00 – 16:30', activity: 'Làm bánh truyền thống (bánh lá dứa, bánh tổ ong nướng)' },
-      { time: '16:30 – 17:00', activity: 'Kết thúc, trả khách về điểm đón' }
-    ],
-    contactInfo: {
-      name: 'John Smith',
-      email: 'john.smith@email.com',
-      phone: '+1 (555) 123-4567',
-      specialRequests: 'Vegetarian meal preference'
+    itinerary: {
+      '8:00 AM': 'Tập trung tại điểm hẹn Phong Điền – nhận áo bà ba',
+      '8:15 – 9:00 AM': 'Hái trái cây theo mùa tại vườn',
+      '9:00 – 10:00 AM': 'Lội mương bắt cá – trải nghiệm vui nhộn',
+      '10:00 – 11:00 AM': 'Đổ bánh xèo miền Tây – dùng bữa trưa nhẹ',
+      '11:00 – 12:00 AM': 'Chụp ảnh “miệt vườn vibe” & nghỉ ngơi võng'
     },
-    photography: [
-      '10–15 ảnh chỉnh sáng cơ bản (JPEG)',
-      '2 ảnh bonus chỉnh chuyên nghiệp',
-      'Gợi ý trang phục: nón lá, áo bà ba'
+    includes: [
+      'Áo bà ba & nón lá',
+      '1 bữa ăn nhẹ (bánh xèo, trái cây)',
+      'Nước uống miễn phí',
+      'Vé tham quan vườn',
+      'Chi phí trải nghiệm bắt cá & hái trái cây',
+      'Hướng dẫn viên bản địa'
+    ],
+    images: [
+      'https://images.unsplash.com/photo-1526318472351-bc6c2ac1f1c3?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1463595373836-6e0b0a8ee322?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80'
     ]
   },
+
   {
-    id: 'BK-2024-002',
-    tour: 'Traditional Music & Sunset on the Mekong River',
-    destination: 'My Tho – Ben Tre',
-    date: '2024-04-22',
-    duration: 'Half-day (afternoon, 2:00 PM – 7:00 PM)',
-    amount: '500,000 VND',
-    status: 'pending',
-    travelers: 1,
-    bookingDate: '2024-02-10',
-    paymentStatus: 'pending',
-    paymentMethod: 'Credit Card',
-    image: 'https://static-images.vnncdn.net/vps_images_publish/000001/000003/2025/6/27/du-lich-ben-tre-khach-tay-nghe-don-ca-tai-tu-tat-muong-bat-ca-lam-keo-dua-88966.jpg?width=0&s=8ERrUWb0g7GKF0LLlt16og',
-    description: 'Khám phá cồn, vườn trái cây, nghe đờn ca tài tử trên sông, chụp ảnh hoàng hôn và trải nghiệm chèo xuồng.',
-    meetingPoint: 'Bến du thuyền',
-    meetingTime: '02:00 PM',
-    endTime: '07:00 PM',
-    included: [
-      '15 ảnh góc rộng và chân dung',
-      '1 video hậu trường highlight (30–60 giây)',
-      'Gói premium: chỉnh ảnh nâng cao + album số (tùy chọn)',
-      'Tham quan cồn, vườn trái cây, chèo xuồng',
-      'Nghe đờn ca tài tử, thưởng trà',
-      'Chụp ảnh concept "Mekong mộng mơ" trên sông lúc hoàng hôn'
+    id: '2',
+    title: 'Khám Phá Văn Hóa & Lịch Sử Sóc Trăng – 1 Ngày',
+    location: 'Sóc Trăng',
+    price: "350,000 VND",
+    rating: 4.9,
+    reviews: 98,
+    duration: '1 ngày (8:00 – 17:00)',
+    groupSize: 'Tối đa 20 khách',
+    difficulty: 'Dễ',
+    description:
+      'Hành trình khám phá văn hoá Khmer đặc sắc tại Sóc Trăng: chùa Som Rong, chùa Dơi, bảo tàng Khmer và trải nghiệm ẩm thực truyền thống.',
+    highlights: [
+      'Tham quan chùa Som Rong – tuyệt đẹp với tượng Phật nằm',
+      'Khám phá chùa Dơi linh thiêng',
+      'Tham quan bảo tàng văn hóa Khmer',
+      'Chụp ảnh phong cách Khmer truyền thống',
+      'Thưởng thức bún nước lèo và bánh Pía đặc sản Sóc Trăng'
     ],
-    notIncluded: [
-      'Chi phí cá nhân',
-      'Tiền tip',
-      'Bảo hiểm ngoài chương trình',
-      'Đồ uống ngoài bữa ăn'
-    ],
-    itinerary: [
-      { time: '14:00', activity: 'Đón tại bến du thuyền' },
-      { time: '14:30 – 15:30', activity: 'Tham quan cồn, vườn trái cây, thưởng thức đặc sản' },
-      { time: '15:30 – 16:30', activity: 'Chèo xuồng rạch nhỏ, chụp ảnh áo bà ba' },
-      { time: '16:30 – 18:00', activity: 'Du thuyền lớn trên sông, nghe đờn ca tài tử, thưởng trà' },
-      { time: '18:00 – 18:45', activity: 'Chụp ảnh hoàng hôn concept "Mekong mộng mơ"' },
-      { time: '19:00', activity: 'Kết thúc tour' }
-    ],
-    contactInfo: {
-      name: 'John Smith',
-      email: 'john.smith@email.com',
-      phone: '+1 (555) 123-4567',
-      specialRequests: ''
+    itinerary: {
+      '8:00 AM': 'Đón khách tại trung tâm Sóc Trăng',
+      '8:30 – 10:00 AM': 'Tham quan chùa Som Rong – điểm check-in nổi tiếng',
+      '10:00 – 11:30 AM': 'Khám phá chùa Dơi – tìm hiểu văn hoá Phật giáo Nam Tông',
+      '11:30 AM – 1:00 PM': 'Ăn trưa với món Khmer truyền thống',
+      '1:00 – 3:00 PM': 'Thăm Bảo tàng Văn hoá Khmer',
+      '3:00 – 5:00 PM': 'Tự do tham quan & mua đặc sản bánh Pía – kết thúc tour'
     },
-    photography: [
-      '15 ảnh góc rộng và chân dung',
-      '1 video hậu trường highlight (30–60 giây)',
-      'Gói premium: chỉnh ảnh nâng cao + album số (tùy chọn)'
-    ]
-  },
-  {
-    id: 'BK-2023-015',
-    tour: 'Memories of the Mekong – Floating Market & Traditional Crafts',
-    destination: 'Cai Rang (Can Tho)',
-    date: '2023-09-10',
-    duration: 'Morning (5:30 AM – 11:00 AM)',
-    amount: '400,000 VND',
-    status: 'completed',
-    travelers: 2,
-    bookingDate: '2023-06-15',
-    paymentStatus: 'paid',
-    paymentMethod: 'Credit Card',
-    image: 'https://anhdaomekong2hotel.vn/upload/images/du-lich-can-tho-1.png',
-    description: 'Khám phá chợ nổi Cái Răng, làng nghề truyền thống, ăn sáng trên sông và chụp ảnh nghệ thuật vintage.',
-    meetingPoint: 'Điểm đón trung tâm',
-    meetingTime: '05:30 AM',
-    endTime: '11:00 AM',
-    included: [
-      '12 ảnh chỉnh màu nhẹ',
-      'Ăn sáng trên sông',
-      'Tham quan làng nghề, trải nghiệm thủ công',
-      'Chụp ảnh nghệ thuật vintage',
-      'Bảo hiểm du lịch'
+    includes: [
+      'Vé vào cổng các điểm tham quan',
+      'Hướng dẫn viên văn hóa Khmer',
+      'Bữa trưa món Khmer truyền thống',
+      'Nước uống & khăn lạnh',
+      'Bảo hiểm du lịch',
+      'Xe đưa đón suốt hành trình'
     ],
-    notIncluded: [
-      'Chi phí cá nhân',
-      'Tiền tip',
-      'Bảo hiểm ngoài chương trình',
-      'Đồ uống ngoài bữa ăn'
-    ],
-    itinerary: [
-      { time: '05:30', activity: 'Đón, đi thuyền ra chợ nổi Cái Răng' },
-      { time: '06:00 – 07:00', activity: 'Ăn sáng trên sông với bún riêu/ hủ tiếu' },
-      { time: '07:00 – 08:00', activity: 'Tham quan làng nghề bánh hỏi hoặc bún gạo' },
-      { time: '08:00 – 09:30', activity: 'Trải nghiệm thủ công, chụp ảnh nghệ thuật vintage' },
-      { time: '09:30 – 11:00', activity: 'Trở về, chụp ảnh sông nước sáng sớm' }
-    ],
-    contactInfo: {
-      name: 'John Smith',
-      email: 'john.smith@email.com',
-      phone: '+1 (555) 123-4567',
-      specialRequests: ''
-    },
-    photography: [
-      '12 ảnh chỉnh màu nhẹ'
+    images: [
+      'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1494475673543-6a6a27143b16?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=1200&q=80'
     ]
   }
 ];

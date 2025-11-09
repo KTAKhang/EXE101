@@ -2,128 +2,87 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 
 // Tour data - in a real app, this would come from your data file
-  const tours = [
-    {
-      id: '1',
-      title: 'Immersive Day as a Traditional Mekong Delta Farmer',
-      location: 'Vinh Long / Can Tho',
-      price: "450,000 VND",
+const tours = [
+  {
+    id: '1',
+    title: 'Trải Nghiệm Bắt Cá & Hái Trái Cây – Cần Thơ',
+    location: 'Phong Điền – Cần Thơ',
+    price: "250,000 VND",
     rating: 4.8,
-    reviews: 124,
-      duration: '1 day',
-    groupSize: 'Max 15 people',
-    difficulty: 'Easy',
-    description: 'Experience authentic farm life in the Mekong Delta! Harvest fresh produce, cook traditional dishes, and capture beautiful memories in the countryside with our basic photo package included.',
+    reviews: 112,
+    duration: '2–3 giờ',
+    groupSize: 'Tối đa 12 khách',
+    difficulty: 'Dễ',
+    description:
+      'Trải nghiệm đời sống miệt vườn Cần Thơ: lội mương bắt cá, hái trái cây tại vườn, thưởng thức ẩm thực dân dã và chụp ảnh phong cảnh đồng quê cực chill.',
     highlights: [
-      'Harvest vegetables and fruits with local farmers',
-      'Cook traditional dishes: grilled snakehead fish, Mekong-style pancakes',
-      'Lunch at garden house with traditional hammocks',
-      'Professional photo shoot in rice fields and countryside',
-      'Make traditional cakes (pandan leaf cake, baked sponge cake)',
-      'Includes conical hat and traditional áo bà ba attire'
+      'Lội mương bắt cá như nông dân miền Tây',
+      'Hái trái cây theo mùa tại vườn',
+      'Thưởng thức bánh xèo miền Tây tự tay làm',
+      'Chụp ảnh với áo bà ba và khung cảnh đồng quê',
+      'Tham quan vườn trái cây – ăn trái tại chỗ'
     ],
     itinerary: {
-      '8:00 AM': 'Pick-up at homestay or central meeting point',
-      '8:30 – 10:00 AM': 'Harvest vegetables/fruits with local farmers (boat ride to orchard)',
-      '10:00 – 11:30 AM': 'Cook traditional dishes: grilled snakehead fish, Mekong-style pancakes',
-      '11:30 AM – 1:00 PM': 'Lunch at garden house, rest on traditional hammocks',
-      '1:00 – 3:00 PM': 'Photo shoot in rice fields/ponds/countryside scenery',
-      '3:00 – 4:30 PM': 'Make traditional cakes (pandan leaf cake, baked sponge cake)',
-      '4:30 – 5:00 PM': 'Return and drop off guests'
+      '8:00 AM': 'Tập trung tại điểm hẹn Phong Điền – nhận áo bà ba',
+      '8:15 – 9:00 AM': 'Hái trái cây theo mùa tại vườn',
+      '9:00 – 10:00 AM': 'Lội mương bắt cá – trải nghiệm vui nhộn',
+      '10:00 – 11:00 AM': 'Đổ bánh xèo miền Tây – dùng bữa trưa nhẹ',
+      '11:00 – 12:00 AM': 'Chụp ảnh “miệt vườn vibe” & nghỉ ngơi võng'
     },
     includes: [
-      '10–15 photos with basic light adjustments (JPEG)',
-      '2 professionally edited bonus photos',
-      'Traditional áo bà ba attire and conical hat',
-      'All meals and cooking ingredients',
-      'Local farmer guide and transportation',
-      'All activities and entrance fees'
+      'Áo bà ba & nón lá',
+      '1 bữa ăn nhẹ (bánh xèo, trái cây)',
+      'Nước uống miễn phí',
+      'Vé tham quan vườn',
+      'Chi phí trải nghiệm bắt cá & hái trái cây',
+      'Hướng dẫn viên bản địa'
     ],
     images: [
-      'https://mia.vn/media/uploads/blog-du-lich/vuon-trai-cay-ben-tre-01-1696636918.jpeg',
-      'https://lavenderstudio.vn/wp-content/uploads/tao-dang-chup-anh-ao-dai-voi-non-la-dep-o-ho-sen.jpg',
-      'https://cafebiz.cafebizcdn.vn/162123310254002176/2024/1/17/photo-10-banh-trai-mien-tay-3-17054588673831717119554.jpg'
+      'https://images.unsplash.com/photo-1526318472351-bc6c2ac1f1c3?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1463595373836-6e0b0a8ee322?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80'
     ]
-    },
-    {
-      id: '2',
-      title: 'Traditional Music & Sunset on the Mekong River',
-      location: 'My Tho – Ben Tre',
-      price: "500,000 VND",
+  },
+
+  {
+    id: '2',
+    title: 'Khám Phá Văn Hóa & Lịch Sử Sóc Trăng – 1 Ngày',
+    location: 'Sóc Trăng',
+    price: "350,000 VND",
     rating: 4.9,
-    reviews: 89,
-    duration: 'Half-day',
-    groupSize: 'Max 15 people',
-    difficulty: 'Easy',
-    description: 'Experience the magical sunset on the Mekong River while enjoying traditional Vietnamese music. Perfect for romantic moments and cultural immersion with professional photography.',
+    reviews: 98,
+    duration: '1 ngày (8:00 – 17:00)',
+    groupSize: 'Tối đa 20 khách',
+    difficulty: 'Dễ',
+    description:
+      'Hành trình khám phá văn hoá Khmer đặc sắc tại Sóc Trăng: chùa Som Rong, chùa Dơi, bảo tàng Khmer và trải nghiệm ẩm thực truyền thống.',
     highlights: [
-      'Visit fruit gardens and sample local delicacies',
-      'Paddle traditional sampan through small canals',
-      'Enjoy traditional Đờn ca tài tử music performance',
-      'Sunset photo shoot with "dreamy Mekong" concept',
-      'Tea service on the river',
-      'Traditional áo bà ba costume included'
+      'Tham quan chùa Som Rong – tuyệt đẹp với tượng Phật nằm',
+      'Khám phá chùa Dơi linh thiêng',
+      'Tham quan bảo tàng văn hóa Khmer',
+      'Chụp ảnh phong cách Khmer truyền thống',
+      'Thưởng thức bún nước lèo và bánh Pía đặc sản Sóc Trăng'
     ],
     itinerary: {
-      '2:00 PM': 'Pick-up at the tourism pier',
-      '2:30 – 3:30 PM': 'Visit islets, explore fruit gardens, sample local delicacies',
-      '3:30 – 4:30 PM': 'Paddle sampan through small canals, photo session in áo bà ba',
-      '4:30 – 6:00 PM': 'Large boat to middle of Mekong River, tea and traditional music',
-      '6:00 – 6:45 PM': 'Sunset photo shoot on the river with "dreamy Mekong" concept',
-      '7:00 PM': 'Tour ends'
+      '8:00 AM': 'Đón khách tại trung tâm Sóc Trăng',
+      '8:30 – 10:00 AM': 'Tham quan chùa Som Rong – điểm check-in nổi tiếng',
+      '10:00 – 11:30 AM': 'Khám phá chùa Dơi – tìm hiểu văn hoá Phật giáo Nam Tông',
+      '11:30 AM – 1:00 PM': 'Ăn trưa với món Khmer truyền thống',
+      '1:00 – 3:00 PM': 'Thăm Bảo tàng Văn hoá Khmer',
+      '3:00 – 5:00 PM': 'Tự do tham quan & mua đặc sản bánh Pía – kết thúc tour'
     },
     includes: [
-      '15 wide-angle and portrait shots',
-      '1 behind-the-scenes highlight video (30–60 seconds)',
-      'Traditional áo bà ba costume',
-      'Tea service and light refreshments',
-      'Traditional music performance',
-      'Premium editing option available'
+      'Vé vào cổng các điểm tham quan',
+      'Hướng dẫn viên văn hóa Khmer',
+      'Bữa trưa món Khmer truyền thống',
+      'Nước uống & khăn lạnh',
+      'Bảo hiểm du lịch',
+      'Xe đưa đón suốt hành trình'
     ],
     images: [
-      'https://elitetour.com.vn/files/images/Blogs/cu-lao-tan-qui.jpg',
-      'https://thienmekongtravel.com/wp-content/uploads/2022/12/conphung.jpg',
-      'https://images.baodantoc.vn/uploads/2024/Thang-8/Ngay-21/Bang-Ngan/5t49.jpg'
-    ]
-    },
-    {
-      id: '3',
-      title: 'Mekong Memories – Floating Market & Traditional Craft Village',
-      location: 'Cai Rang (Can Tho)',
-      price: "400,000 VND",
-    rating: 4.7,
-    reviews: 156,
-      duration: 'Morning',
-    groupSize: 'Max 15 people',
-    difficulty: 'Easy',
-    description: 'Start your day early at the famous Cai Rang Floating Market, enjoy breakfast on the river, and explore traditional craft villages with nostalgic photo opportunities.',
-    highlights: [
-      'Visit famous Cai Rang Floating Market',
-      'Unique "breakfast on the river" experience',
-      'Visit rice noodle or rice paper-making villages',
-      'Interact with locals and try traditional crafts',
-      'Artistic photos in nostalgic setting',
-      'Vintage Mekong concept with traditional áo dài'
-    ],
-    itinerary: {
-      '5:30 AM': 'Pick-up and boat ride to Cai Rang Floating Market',
-      '6:00 – 7:00 AM': 'Breakfast on boat: bun rieu or hu tieu - unique river dining',
-      '7:00 – 8:00 AM': 'Visit rice noodle or rice paper-making villages',
-      '8:00 – 9:30 AM': 'Interact with locals, try traditional crafts, nostalgic photos',
-      '9:30 – 11:00 AM': 'Return by boat, morning river photo session'
-    },
-    includes: [
-      '12 lightly color-graded photos',
-      'Commemorative collage photo (photo + tour info)',
-      'Traditional áo dài and checkered scarf',
-      'Breakfast on the river',
-      'Local guide and transportation',
-      'All craft activities and materials'
-    ],
-    images: [
-      'https://thamhiemmekong.com/wp-content/uploads/2019/05/lo-hu-tieu-can-tho-3.jpg',
-      'https://media.vov.vn/sites/default/files/styles/large_watermark/public/2023-02/329518642_1151748552200787_4237649310514734967_n.jpg',
-      'https://thamhiemmekong.com/wp-content/uploads/2019/07/lang-nghe-cham-non-la-can-tho-1.jpg'
+      'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1494475673543-6a6a27143b16?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=1200&q=80'
     ]
   }
 ];
@@ -232,7 +191,7 @@ const TourDetailPage = () => {
                   <i className="ri-heart-line mr-2"></i>
                   Add to Wishlist
                 </button>
-            </div>
+              </div>
 
               {/* Highlights */}
               <div className="mb-8">
@@ -260,22 +219,22 @@ const TourDetailPage = () => {
                     <span className="text-gray-600">{activity}</span>
                   </div>
                 ))}
-                    </div>
-                    </div>
-                  </div>
-
-                     {/* What&apos;s Included */}
-           <div className="mt-16">
-             <h3 className="text-2xl font-bold text-gray-900 mb-6">What&apos;s Included</h3>
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-               {tour.includes.map((item, index) => (
-                 <div key={index} className="flex items-center text-gray-700">
-                   <i className="ri-check-line text-green-500 mr-2"></i>
-                   {item}
               </div>
-            ))}
-          </div>
             </div>
+          </div>
+
+          {/* What&apos;s Included */}
+          <div className="mt-16">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6">What&apos;s Included</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {tour.includes.map((item, index) => (
+                <div key={index} className="flex items-center text-gray-700">
+                  <i className="ri-check-line text-green-500 mr-2"></i>
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
 
         </div>
       </section>

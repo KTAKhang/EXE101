@@ -1,6 +1,3 @@
-
-
-
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -13,7 +10,7 @@ export default function LoginPage() {
     const [showPassword, setShowPassword] = useState(false);
     const [errors, setErrors] = useState({});
 
-    const handleInputChange = () => {
+    const handleInputChange = (e) => {
         const { name, value, type, checked } = e.target;
         setFormData(prev => ({
             ...prev,
@@ -25,24 +22,24 @@ export default function LoginPage() {
         const newErrors = {};
 
         if (!formData.email.trim()) {
-            newErrors.email = 'Email is required';
+            newErrors.email = 'Vui lòng nhập email';
         } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-            newErrors.email = 'Email is invalid';
+            newErrors.email = 'Email không hợp lệ';
         }
 
         if (!formData.password) {
-            newErrors.password = 'Password is required';
+            newErrors.password = 'Vui lòng nhập mật khẩu';
         }
 
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         if (validateForm()) {
-            console.log('Login data:', formData);
-            // Handle login logic here
+            console.log('Dữ liệu đăng nhập:', formData);
+            // Xử lý đăng nhập tại đây
         }
     };
 
@@ -52,11 +49,11 @@ export default function LoginPage() {
             <div className="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-md w-full space-y-8">
                     <div className="text-center">
-                        <h2 className="text-3xl font-bold text-gray-900">Welcome back</h2>
+                        <h2 className="text-3xl font-bold text-gray-900">Chào mừng trở lại</h2>
                         <p className="mt-2 text-gray-600">
-                            Don't have an account?{' '}
+                            Chưa có tài khoản?{' '}
                             <Link to="/register" className="text-blue-600 hover:text-blue-700 font-semibold cursor-pointer">
-                                Sign up
+                                Đăng ký
                             </Link>
                         </p>
                     </div>
@@ -65,7 +62,7 @@ export default function LoginPage() {
                         <form className="space-y-6" onSubmit={handleSubmit}>
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                                    Email Address
+                                    Địa chỉ Email
                                 </label>
                                 <input
                                     type="email"
@@ -83,7 +80,7 @@ export default function LoginPage() {
 
                             <div>
                                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                                    Password
+                                    Mật khẩu
                                 </label>
                                 <div className="relative">
                                     <input
@@ -93,7 +90,7 @@ export default function LoginPage() {
                                         onChange={handleInputChange}
                                         className={`w-full px-3 py-2 pr-10 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${errors.password ? 'border-red-500' : 'border-gray-300'
                                             }`}
-                                        placeholder="Enter your password"
+                                        placeholder="Nhập mật khẩu của bạn"
                                     />
                                     <button
                                         type="button"
@@ -118,11 +115,11 @@ export default function LoginPage() {
                                         className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded cursor-pointer"
                                     />
                                     <label className="ml-2 block text-sm text-gray-700">
-                                        Remember me
+                                        Ghi nhớ đăng nhập
                                     </label>
                                 </div>
                                 <Link to="/contact" className="text-sm text-blue-600 hover:text-blue-700 cursor-pointer">
-                                    Forgot password?
+                                    Quên mật khẩu?
                                 </Link>
                             </div>
 
@@ -130,7 +127,7 @@ export default function LoginPage() {
                                 type="submit"
                                 className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 whitespace-nowrap cursor-pointer"
                             >
-                                Sign In
+                                Đăng nhập
                             </button>
                         </form>
 
@@ -140,7 +137,7 @@ export default function LoginPage() {
                                     <div className="w-full border-t border-gray-300" />
                                 </div>
                                 <div className="relative flex justify-center text-sm">
-                                    <span className="px-2 bg-white text-gray-500">Or continue with</span>
+                                    <span className="px-2 bg-white text-gray-500">Hoặc tiếp tục với</span>
                                 </div>
                             </div>
 
@@ -159,9 +156,9 @@ export default function LoginPage() {
 
                     <div className="text-center">
                         <p className="text-sm text-gray-600">
-                            Need help?{' '}
+                            Cần hỗ trợ?{' '}
                             <Link to="/contact" className="text-blue-600 hover:text-blue-700 cursor-pointer">
-                                Contact support
+                                Liên hệ hỗ trợ
                             </Link>
                         </p>
                     </div>
